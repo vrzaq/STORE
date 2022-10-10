@@ -144,7 +144,7 @@ async function sessions(path) {
                     };
                     console.log(chalk.bold.yellow(m.isGroup ? '[GROUP]' : '[PRIVATE CHAT]'), chalk.bold.white('From >'), chalk.bold.green(m.chat && m.sender), chalk.bold.white('Date >'), chalk.bold.blue(moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')+'/'+moment.tz('asia/jakarta').format('HH:mm:ss')+' WIB'), chalk.bold.yellow('\n[MESSAGE]'), chalk.bold.white('Type >'), chalk.bold.grey(m.mtype), chalk.bold.white('Chat >'), chalk.bold.cyan(configuration.data.jid[0].message.switching.multiPrefix ? m.command : m.body) || 'conversation');
                 };
-                require('./library/commands/messages/upsets.js').newModule(razzaq, store, jid, msg, m, cmPrefix);
+                require('./library/commands/messages/upsets.js').newModule(razzaq, store, jid, msg, m, prefix);
             } catch (err) {
                 console.log(err);
             };
