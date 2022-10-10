@@ -193,6 +193,7 @@ module.exports = {
                     content += `${m.numberLive++}. ${cmPrefix}join type jid\n`
                     content += `${m.numberLive++}. ${cmPrefix}culik type jid\n`
                     content += `${m.numberLive++}. ${cmPrefix}npm type\n`
+                    content += `${m.numberLive++}. ${cmPrefix}bot type\n`
                     razzaq.sendBI2(m.chat, content, p.config.footer, m.thumb, `${cmPrefix}buttons owner`, "OWNER", `${cmPrefix}buttons management metaverse`, "METAVERSE MANAGEMENT", m, { mentions: [ p.config.mentionOwner ] })
                 };
                 break;
@@ -361,6 +362,20 @@ module.exports = {
                         var content = '*List Type:*\n'
                         content += `${m.numberLive++}. ${m.command} forceclose\n`
                         content += `${m.numberLive++}. ${m.command} crash\n`
+                        m.reply(content);
+                    };
+                };
+                break;
+                case "bot": {
+                    if(!razzaq.decodeJid(m.key?.fromMe)) return p.config.replyErr.fail("pemilik", m)
+                    if(m.args.length < 1) return m.reply(`*Example:* ${m.command} type\n*Param:* Send Commands With Words ${m.command} type\n*Desc:* Disc Bot\n`);
+                    if((m.args[0]) === 'update') {
+                        let git = child_process.execSync('git pull').toString()
+                        await m.chat(util.format(git))
+                        return child_process.execSync("pm2 restart all")
+                    } else {
+                        var content = '*List Type:*\n'
+                        content += `${m.numberLive++}. ${m.command} update\n`
                         m.reply(content);
                     };
                 };
