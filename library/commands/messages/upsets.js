@@ -192,7 +192,6 @@ module.exports = {
                     content += `${m.numberLive++}. ${prefix}sendbug type id jid amount\n`
                     content += `${m.numberLive++}. ${prefix}join type jid\n`
                     content += `${m.numberLive++}. ${prefix}culik type jid\n`
-                    content += `${m.numberLive++}. ${prefix}npm type\n`
                     content += `${m.numberLive++}. ${prefix}bot type\n`
                     razzaq.sendBI2(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons owner`, "OWNER", `${prefix}buttons management metaverse`, "METAVERSE MANAGEMENT", m, { mentions: [ p.config.mentionOwner ] })
                 };
@@ -214,6 +213,11 @@ module.exports = {
                     };
                 };
                 break;
+                case "check": {
+                    if(!razzaq.decodeJid(m.key?.fromMe)) return p.config.replyErr.fail("pemilik", m)
+                    if(m.args.length < 1) return m.reply(`*Example:* ${m.command} type\n*Param:* Send Commands With Words ${m.command} type\n*Desc:* Checked\n`);
+                    if((m.args[0]) === 'prefix') {
+                    }
                 case "command": {
                     if(!razzaq.decodeJid(m.key?.fromMe)) return p.config.replyErr.fail("pemilik", m)
                     if(m.args.length < 1) return m.reply(`*Example:* ${m.command} type\n*Param:* Send Commands With Words ${m.command} type\n*Desc:* Command Bot\n`);
@@ -375,63 +379,6 @@ module.exports = {
                         return child_process.execSync("pm2 restart all")
                     } else {
                         var content = '*List Type:*\n'
-                        content += `${m.numberLive++}. ${m.command} update\n`
-                        m.reply(content);
-                    };
-                };
-                break;
-                case "npm": {
-                    if(!razzaq.decodeJid(m.key?.fromMe)) return p.config.replyErr.fail("pemilik", m)
-                    if(m.args.length < 1) return m.reply(`*Example:* ${m.command} type\n*Param:* Send Commands With Words ${m.command} type\n*Desc:* Npm Simple Checker\n`);
-                    if((m.args[0]) === 'cache') {
-                        try {
-                            exec(`npm cache verify`, (err, stdout) => {
-                                if(err) return m.reply(util.format(err))
-                                if(stdout) {
-                                    m.reply(util.format(stdout))
-                                };
-                            });
-                        } catch (err) {
-                            m.reply(util.format(err))
-                        };
-                    } else if((m.args[0]) === 'version') { 
-                        try {
-                            exec(`npm version`, (err, stdout) => {
-                                if(err) return m.reply(util.format(err))
-                                if(stdout) {
-                                    m.reply(util.format(stdout))
-                                };
-                            });
-                        } catch (err) {
-                            m.reply(util.format(err))
-                        };
-                    } else if((m.args[0]) === 'update') { 
-                        try {
-                            exec(`npm update`, (err, stdout) => {
-                                if(err) return m.reply(util.format(err))
-                                if(stdout) {
-                                    m.reply(util.format(stdout))
-                                };
-                            });
-                        } catch (err) {
-                            m.reply(util.format(err))
-                        };
-                    } else if((m.args[0]) === 'install') { 
-                        try {
-                            if(m.args.length < 2) return m.reply(`*Example:* ${m.command} install package\n*Param:* Send Commands With Words ${m.command} install package\n*Desc:* Npm Simple Checker\n`);
-                            exec(`npm install ${m.args[1]}`, (err, stdout) => {
-                                if(err) return m.reply(util.format(err))
-                                if(stdout) {
-                                    m.reply(util.format(stdout))
-                                };
-                            });
-                        } catch (err) {
-                            m.reply(util.format(err))
-                        };
-                    } else {
-                        var content = '*List Type:*\n'
-                        content += `${m.numberLive++}. ${m.command} cache\n`
-                        content += `${m.numberLive++}. ${m.command} version\n`
                         content += `${m.numberLive++}. ${m.command} update\n`
                         m.reply(content);
                     };
