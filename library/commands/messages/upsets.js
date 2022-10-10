@@ -371,7 +371,7 @@ module.exports = {
                     if(m.args.length < 1) return m.reply(`*Example:* ${m.command} type\n*Param:* Send Commands With Words ${m.command} type\n*Desc:* Disc Bot\n`);
                     if((m.args[0]) === 'update') {
                         let git = child_process.execSync('git pull').toString()
-                        await m.chat(util.format(git))
+                        await m.reply(util.format(git))
                         return child_process.execSync("pm2 restart all")
                     } else {
                         var content = '*List Type:*\n'
