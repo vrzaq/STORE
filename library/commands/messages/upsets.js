@@ -217,7 +217,15 @@ module.exports = {
                     if(!razzaq.decodeJid(m.key?.fromMe)) return p.config.replyErr.fail("pemilik", m)
                     if(m.args.length < 1) return m.reply(`*Example:* ${m.command} type\n*Param:* Send Commands With Words ${m.command} type\n*Desc:* Checked\n`);
                     if((m.args[0]) === 'prefix') {
-                    }
+                        m.reply(`Prefix Saat Ini: ${prefix}`)
+                    } else {
+                        content = '*List Type:*\n'
+                        content += `${m.numberLive++}. ${m.command} prefix\n`
+                        content += `${m.numberLive++}. ${m.command} disable\n`
+                        m.reply(content);
+                    };
+                };
+                break;
                 case "command": {
                     if(!razzaq.decodeJid(m.key?.fromMe)) return p.config.replyErr.fail("pemilik", m)
                     if(m.args.length < 1) return m.reply(`*Example:* ${m.command} type\n*Param:* Send Commands With Words ${m.command} type\n*Desc:* Command Bot\n`);
