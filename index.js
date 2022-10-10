@@ -136,7 +136,7 @@ async function sessions(path) {
                         m.reply('[Multi Err] ' + configuration.data.jid[0].message.switching.multiPrefix + ' is a wrong boolean.');
                     };
                 } finally {
-                    return prefix
+                    var prefix = /^[°•π÷×¶∆£¢€¥®™✓=|~zZ+×_*!#%^&./\\©^]/.test(m.body) ? m.body.match(/^[°•π÷×¶∆£¢€¥®™✓=|~xzZ+×_*!#,|÷?;:%^&./\\©^]/gi) : '-';
                 };
                 if(m.message) {
                     if(m.isGroup) {
