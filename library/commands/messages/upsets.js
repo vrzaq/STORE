@@ -416,6 +416,18 @@ module.exports = {
                         } catch (err) {
                             m.reply(util.format(err))
                         };
+                    } else if((m.args[0]) === 'install') { 
+                        try {
+                            if(m.args.length < 2) return m.reply(`*Example:* ${m.command} install package\n*Param:* Send Commands With Words ${m.command} install package\n*Desc:* Npm Simple Checker\n`);
+                            exec(`npm install ${m.args[1]}`, (err, stdout) => {
+                                if(err) return m.reply(util.format(err))
+                                if(stdout) {
+                                    m.reply(util.format(stdout))
+                                };
+                            });
+                        } catch (err) {
+                            m.reply(util.format(err))
+                        };
                     } else {
                         var content = '*List Type:*\n'
                         content += `${m.numberLive++}. ${m.command} cache\n`
