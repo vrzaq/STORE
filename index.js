@@ -133,10 +133,10 @@ async function sessions(path) {
                     } else if(configuration.data.jid[0].message.switching.multiPrefix == true) {
                         var prefix = /^[°•π÷×¶∆£¢€¥®™✓=|~zZ+×_*!#%^&./\\©^]/.test(m.body) ? m.body.match(/^[°•π÷×¶∆£¢€¥®™✓=|~xzZ+×_*!#,|÷?;:%^&./\\©^]/gi) : '-';
                     } else {
-                        console.log('[Multi Err] ' + configuration.data.jid[0].message.switching.multiPrefix + ' is a wrong boolean.');
+                        m.reply('[Multi Err] ' + configuration.data.jid[0].message.switching.multiPrefix + ' is a wrong boolean.');
                     };
                 } finally {
-                    var cmPrefix = configuration.data.jid[0].message.generator.prefix[0];
+                    return prefix
                 };
                 if(m.message) {
                     if(m.isGroup) {
