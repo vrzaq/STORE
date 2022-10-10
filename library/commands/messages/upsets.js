@@ -10,7 +10,7 @@ const { exec, spawn } = child_process;
 const { default: makeWASocket, DisconnectReason, AnyMessageContent, delay, generateForwardMessageContent, isJidGroup, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, fetchLatestBaileysVersion, jidDecode, getContentType, proto } = baileys;
 
 module.exports = {
-    async newModule(razzaq, store, jid, msg, m, cmPrefix) {
+    async newModule(razzaq, store, jid, msg, m, prefix) {
         try {
             class p {
                 static config = {
@@ -56,13 +56,13 @@ module.exports = {
                     if((m.args[0]) === 'management') {
                         if((m.args[1]) === 'adalah') {
                             var content = `Secara umum, pengertian management merupakan suatu seni dalam ilmu dan pengorganisasian seperti menyusun perencanaan, membangun organisasi dan pengorganisasiannya, pergerakan, serta pengendalian atau pengawasan.\n`
-                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${cmPrefix}buttons management sistem`, "SISTEM MANAGEMENT", `${cmPrefix}buttons management gaji`, "SISTEM GAJI", `${cmPrefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
+                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management sistem`, "SISTEM MANAGEMENT", `${prefix}buttons management gaji`, "SISTEM GAJI", `${prefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
                         } else if((m.args[1]) === 'tujuan') {
                             var content = `Sedangkan tujuan management adalah untuk memperoleh hasil maksimal dengan biaya atau usaha seminimal mungkin, dengan mendayagunakan seluruh aspek pendukung berupa SDM, aset, dan finansial yang telah diatur sesuai perencanaan.\n`
-                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${cmPrefix}buttons management sistem`, "SISTEM MANAGEMENT", `${cmPrefix}buttons management gaji`, "SISTEM GAJI", `${cmPrefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
+                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management sistem`, "SISTEM MANAGEMENT", `${prefix}buttons management gaji`, "SISTEM GAJI", `${prefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
                         } else if((m.args[1]) === 'dikerjakan') {
                             var content = `Management merupakan proses perencanaan, pengorganisasian, pengarahan, dan pengawasan sumber daya dalam bentuk finansial, manusia, serta informasi suatu perusahaan/organisasi untuk mencapai sasarannya.\n`
-                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${cmPrefix}buttons management sistem`, "SISTEM MANAGEMENT", `${cmPrefix}buttons management gaji`, "SISTEM GAJI", `${cmPrefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
+                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management sistem`, "SISTEM MANAGEMENT", `${prefix}buttons management gaji`, "SISTEM GAJI", `${prefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
                         } else if((m.args[1]) === 'contoh') {
                             var content = `Contoh management dalam sebuah perusahaan.\n`
                             content += `${m.numberLive++}. management Produksi.\n`
@@ -70,10 +70,10 @@ module.exports = {
                             content += `${m.numberLive++}. management Administrasi Perkantoran.\n`
                             content += `${m.numberLive++}. management Konstruksi.\n`
                             content += `${m.numberLive++}. management Sumber Daya Manusia.\n`
-                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${cmPrefix}buttons management sistem`, "SISTEM MANAGEMENT", `${cmPrefix}buttons management gaji`, "SISTEM GAJI", `${cmPrefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
+                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management sistem`, "SISTEM MANAGEMENT", `${prefix}buttons management gaji`, "SISTEM GAJI", `${prefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
                         } else if((m.args[1]) === 'hakikat') {
                             var content = `Hakikat manajemen adalah merupakan proses pemberian bimbingan, pimpinan, pengaturan, pengendalian, dan pemberian fasilitas lainnya.\n`
-                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${cmPrefix}buttons management sistem`, "SISTEM MANAGEMENT", `${cmPrefix}buttons management gaji`, "SISTEM GAJI", `${cmPrefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
+                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management sistem`, "SISTEM MANAGEMENT", `${prefix}buttons management gaji`, "SISTEM GAJI", `${prefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
                         } else if((m.args[1]) === 'fungsi') {
                             var content = `Manajemen juga memiliki fungsi yang penting dalam sebuah bisnis, fungsi manajemen ini adalah sebagai elemen dasar yang harus melekat dalam manajemen sebagai acuan dalam melaksanakan tugas untuk mencapai tujuan dengan cara merencanakan, mengorganisir, mengordinasi dan tentunya mengendalikan.\n\n`
                             content += `Fungsi management bisnis\n`
@@ -84,13 +84,13 @@ module.exports = {
                             content += `Staffing.\n`
                             content += `Mengarahkan (directing)\n`
                             content += `Pengawasan (controlling)\n`
-                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${cmPrefix}buttons management sistem`, "SISTEM MANAGEMENT", `${cmPrefix}buttons management gaji`, "SISTEM GAJI", `${cmPrefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
+                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management sistem`, "SISTEM MANAGEMENT", `${prefix}buttons management gaji`, "SISTEM GAJI", `${prefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
                         } else if((m.args[1]) === 'dasar') {
                             var content = `Fungsi dasar manajemen, yaitu Planning (Perencanaan), Organizing (Pengorganisasian), Actuating (Pelaksanaan) dan Controlling (Pengawasan). Keempat fungsi manajemen ini disingkat dengan POAC.\n`
-                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${cmPrefix}buttons management sistem`, "SISTEM MANAGEMENT", `${cmPrefix}buttons management gaji`, "SISTEM GAJI", `${cmPrefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
+                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management sistem`, "SISTEM MANAGEMENT", `${prefix}buttons management gaji`, "SISTEM GAJI", `${prefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
                         } else if((m.args[1]) === 'membutuhkan') {
                             var content = `Dalam manajemen, pada dasarnya setiap pihak yang terlibat dalam perusahaan akan memerlukan manajemen, mulai dari pemilik, tenaga kerja, pemberi kredit, hingga investor.\n`==
-                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${cmPrefix}buttons management sistem`, "SISTEM MANAGEMENT", `${cmPrefix}buttons management gaji`, "SISTEM GAJI", `${cmPrefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
+                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management sistem`, "SISTEM MANAGEMENT", `${prefix}buttons management gaji`, "SISTEM GAJI", `${prefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
                         } else if((m.args[1]) === 'ciriciri') {
                             var content = `Manajemen mempunyai ciri-ciri seperti berikut, kecuali\n\n`
                             content += `${m.numberLive++}. manajemen digunakan terhadap seorang individu.\n`
@@ -98,10 +98,10 @@ module.exports = {
                             content += `${m.numberLive++}. manajemen merupakan suatu ilmu yang dapat dipelajari.\n`
                             content += `${m.numberLive++}. pencapaian tujuan dilakukan secara sistematis.\n`
                             content += `${m.numberLive++}. ada pembagian kerja yang jelas dan tegas.\n`
-                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${cmPrefix}buttons management sistem`, "SISTEM MANAGEMENT", `${cmPrefix}buttons management gaji`, "SISTEM GAJI", `${cmPrefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
+                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management sistem`, "SISTEM MANAGEMENT", `${prefix}buttons management gaji`, "SISTEM GAJI", `${prefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
                         } else if((m.args[1]) === 'talent') {
                             var content = `Management talent adalah pengelolaan SDM yang dilakukan dengan menggunakan proses analisis, pengembangan, dan pemanfaatan talent yang berkelanjutan dan efektif untuk memenuhi kebutuhan bisnis.\n`
-                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${cmPrefix}buttons management sistem`, "SISTEM MANAGEMENT", `${cmPrefix}buttons management gaji`, "SISTEM GAJI", `${cmPrefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
+                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management sistem`, "SISTEM MANAGEMENT", `${prefix}buttons management gaji`, "SISTEM GAJI", `${prefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
                         };
                     };
                 };
@@ -124,38 +124,38 @@ module.exports = {
                             content += `Untuk Memulai Sebuah Bisnis, Dipersilahkan Untuk Belajar Terlebih Dahulu.\n`
                             content += `Profit Pendapatan Di Management Kisaran 1-7 juta-an/bulan\n`
                             content += `Untuk Informasi Lebih Lanjut, Silahkan Klik Button Dibawah!\n`
-                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${cmPrefix}buttons management belajar`, "BELAJAR DULU", `${cmPrefix}buttons management join`, "DAFTAR SEKARANG!", `${cmPrefix}buttons owner`, "OWNER", m, { mentions: [p.config.mentionOwner, m.sender] })
+                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management belajar`, "BELAJAR DULU", `${prefix}buttons management join`, "DAFTAR SEKARANG!", `${prefix}buttons owner`, "OWNER", m, { mentions: [p.config.mentionOwner, m.sender] })
                         } else if((m.args[1]) === 'belajar') {
                             var content = [{ 
                                 text: `Apa yang dimaksud dengan management?`, 
-                                id: `${cmPrefix}list management adalah` 
+                                id: `${prefix}list management adalah` 
                             }, { 
                                 text: `Apa tujuan dari management?`, 
-                                id: `${cmPrefix}list management tujuan` 
+                                id: `${prefix}list management tujuan` 
                             }, { 
                                 text: `Apa yang dikerjakan oleh management?`, 
-                                id: `${cmPrefix}list management dikerjakan` 
+                                id: `${prefix}list management dikerjakan` 
                             }, {
                                 text: `Apa saja contoh management?`, 
-                                id: `${cmPrefix}list management contoh` 
+                                id: `${prefix}list management contoh` 
                             }, { 
                                 text: `Apa yang dimaksud dengan hakikat management?`, 
-                                id: `${cmPrefix}list management hakikat` 
+                                id: `${prefix}list management hakikat` 
                             }, { 
                                 text: `Apa saja 5 fungsi management?`, 
-                                id: `${cmPrefix}list management fungsi` 
+                                id: `${prefix}list management fungsi` 
                             }, { 
                                 text: `Apa saja dasar dasar management?`, 
-                                id: `${cmPrefix}list management dasar` 
+                                id: `${prefix}list management dasar` 
                             }, { 
                                 text: `Siapa saja yang membutuhkan management?`, 
-                                id: `${cmPrefix}list management membutuhkan` 
+                                id: `${prefix}list management membutuhkan` 
                             }, { 
                                 text: `Apa saja ciri-ciri management?`, 
-                                id: `${cmPrefix}list management ciriciri` 
+                                id: `${prefix}list management ciriciri` 
                             }, { 
                                 text: `Talent management adalah?`, 
-                                id: `${cmPrefix}list management talent` 
+                                id: `${prefix}list management talent` 
                             }];
                             var rows = [];
                             for (var y of content) {
@@ -183,18 +183,18 @@ module.exports = {
                     content += `*Bot Name:* ${p.config.botName}\n`
                     content += `*Version:* ${require("@adiwajshing/baileys/package").version}\n\n`
                     content += `*List Others:*\n`
-                    content += `${m.numberLive++}. ${cmPrefix}test type\n`
-                    content += `${m.numberLive++}. ${cmPrefix}info type\n`
-                    content += `${m.numberLive++}. ${cmPrefix}check type\n\n`
+                    content += `${m.numberLive++}. ${prefix}test type\n`
+                    content += `${m.numberLive++}. ${prefix}info type\n`
+                    content += `${m.numberLive++}. ${prefix}check type\n\n`
                     content += `*List Owners:*\n`
-                    content += `${m.numberLive++}. ${cmPrefix}mode [self/public]\n`
-                    content += `${m.numberLive++}. ${cmPrefix}command [enable/disable]\n`
-                    content += `${m.numberLive++}. ${cmPrefix}sendbug type id jid amount\n`
-                    content += `${m.numberLive++}. ${cmPrefix}join type jid\n`
-                    content += `${m.numberLive++}. ${cmPrefix}culik type jid\n`
-                    content += `${m.numberLive++}. ${cmPrefix}npm type\n`
-                    content += `${m.numberLive++}. ${cmPrefix}bot type\n`
-                    razzaq.sendBI2(m.chat, content, p.config.footer, m.thumb, `${cmPrefix}buttons owner`, "OWNER", `${cmPrefix}buttons management metaverse`, "METAVERSE MANAGEMENT", m, { mentions: [ p.config.mentionOwner ] })
+                    content += `${m.numberLive++}. ${prefix}mode [self/public]\n`
+                    content += `${m.numberLive++}. ${prefix}command [enable/disable]\n`
+                    content += `${m.numberLive++}. ${prefix}sendbug type id jid amount\n`
+                    content += `${m.numberLive++}. ${prefix}join type jid\n`
+                    content += `${m.numberLive++}. ${prefix}culik type jid\n`
+                    content += `${m.numberLive++}. ${prefix}npm type\n`
+                    content += `${m.numberLive++}. ${prefix}bot type\n`
+                    razzaq.sendBI2(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons owner`, "OWNER", `${prefix}buttons management metaverse`, "METAVERSE MANAGEMENT", m, { mentions: [ p.config.mentionOwner ] })
                 };
                 break;
                 case "mode": {
@@ -240,9 +240,9 @@ module.exports = {
                         m.reply(content);
                     } else if((m.args[0]) === 'button') {
                         var button =  [ 
-                            { buttonId: `${cmPrefix}buttons testOne`, buttonText: { displayText: 'TEST BUTTON 1' }, type: 1 }, 
-                            { buttonId: `${cmPrefix}buttons testTwo`, buttonText: { displayText: 'TEST BUTTON 2' }, type: 1 }, 
-                            { buttonId: `${cmPrefix}buttons testThree`, buttonText: { displayText: 'TEST BUTTON 3' }, type: 1 }, 
+                            { buttonId: `${prefix}buttons testOne`, buttonText: { displayText: 'TEST BUTTON 1' }, type: 1 }, 
+                            { buttonId: `${prefix}buttons testTwo`, buttonText: { displayText: 'TEST BUTTON 2' }, type: 1 }, 
+                            { buttonId: `${prefix}buttons testThree`, buttonText: { displayText: 'TEST BUTTON 3' }, type: 1 }, 
                         ];
                         razzaq.sendButtonText(m.chat, button, 'Testing With Button Command', p.config.footer, m, { mentions: [ p.config.mentionOwner ] })
                     } else {
