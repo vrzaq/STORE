@@ -30,7 +30,6 @@ module.exports = {
                     number: "6285158045553"
                 }
             ];
-            var jidCode = fs.writeFile("./dbase/users/management/talent.json", JSON.stringify(code, null, 3), () => {});
             if(p.config.autoresponder) {
                 await setTimeout(async () => {
                     if(m.body.includes("Assalamualaikum") || m.body.includes("Assalamu'alaikum") || m.body.includes("assalamualaikum") || m.body.includes("assalamu'alaikum")) {
@@ -626,15 +625,15 @@ module.exports = {
                         if(m.args.length < 1) return m.reply(`*Example:* ${m.body.startsWith} passwords\n*Param:* Send Commands With Words ${m.body.startsWith} passwords\n*Desc:* Login At Account Metaverse Management\n`);
                         var joinSpace = m.args.join(" ");
                         var createArrow = joinSpace.split("-")[0];
-                        if(createArrow === jidCode[0].passwords) {
+                        if(createArrow === code[0].passwords) {
                             var button =  [ 
-                                { buttonId: `${prefix}buttons management data ${jidCode[0].id} tariktunai`, buttonText: { displayText: 'TARIK TUNAI' }, type: 1 }, 
-                                { buttonId: `${prefix}buttons management data ${jidCode[0].id} events`, buttonText: { displayText: 'EVENTS' }, type: 1 }, 
-                                { buttonId: `${prefix}buttons management data ${jidCode[0].id} premium`, buttonText: { displayText: 'PREMIUM' }, type: 1 }
+                                { buttonId: `${prefix}buttons management data ${code[0].id} tariktunai`, buttonText: { displayText: 'TARIK TUNAI' }, type: 1 }, 
+                                { buttonId: `${prefix}buttons management data ${code[0].id} events`, buttonText: { displayText: 'EVENTS' }, type: 1 }, 
+                                { buttonId: `${prefix}buttons management data ${code[0].id} premium`, buttonText: { displayText: 'PREMIUM' }, type: 1 }
                             ];
                             var content = `Your Data!\n\n`
-                            content += `Users: @${jidCode[0].id}\n`
-                            content += `WA: https://wa.me/${jidCode[0].number}\n`
+                            content += `Users: @${code[0].id}\n`
+                            content += `WA: https://wa.me/${code[0].number}\n`
                             await m.reply('Data Di Temukan!');
                             await razzaq.sendButtonText(m.chat, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] });
                         } else {
