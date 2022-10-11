@@ -323,8 +323,6 @@ module.exports = {
                 case "menu": {
                     if(!p.config.cmdPublic) return p.config.replyErr.fail("publik", m)
                     if(m.isBanned) return p.config.replyErr.fail("banned", m)
-                    var mem = process.memoryUsage();
-                    var obj = Object.keys(mem).map(ve => `├◉ ${ve}: ${byteToSize(mem[ve], 2)}`).join("\n")
                     var content = `*${m.ucapanWaktu} - ${m.moment} WIB*\n\n`
                     content += `*Bot Name:* ${p.config.botName}\n`
                     content += `*Version:* ${require("@adiwajshing/baileys/package").version}\n\n`
@@ -339,7 +337,25 @@ module.exports = {
                     content += `${m.numberLive++}. ${prefix}join type jid\n`
                     content += `${m.numberLive++}. ${prefix}culik type jid\n`
                     content += `${m.numberLive++}. ${prefix}bot type\n`
-                    razzaq.sendBI2(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons owner`, "OWNER", `${prefix}buttons management metaverse`, "METAVERSE MANAGEMENT", m, { mentions: [ p.config.mentionOwner ] })
+                    var button = [
+                        { 
+                            urlButton: { 
+                                displayText: `YOUTUBE CHANNEL`, 
+                                url : configuration.data.jid[1].owner.social.youtube.urlChannel
+                            },
+                        }, { 
+                            quickReplyButton: { 
+                                displayText: `OWNER`,
+                                id: `${prefix}buttons owner`
+                            }, 
+                        }, { 
+                            quickReplyButton: { 
+                                displayText: `METAVERSE MANAGEMENT`, 
+                                id: `${prefix}buttons management metaverse`
+                            }, 
+                        },
+                    ];
+                    razzaq.sendMessage(m.chat, { caption: content, location: { jpegThumbnail: m.sender }, templateButtons: button, footer: p.config.footer, mentions: [m.sender] })
                 };
                 break;
                 case "mode": {
@@ -625,15 +641,15 @@ module.exports = {
                         if(m.args.length < 1) return m.reply(`*Example:* ${m.body.startsWith} passwords\n*Param:* Send Commands With Words ${m.body.startsWith} passwords\n*Desc:* Login At Account Metaverse Management\n`);
                         var joinSpace = m.args.join(" ");
                         var createArrow = joinSpace.split("-")[0];
-                        if(createArrow === code[0].passwords) {
+                        if(createArrow === jidCode[0].passwords) {
                             var button =  [ 
-                                { buttonId: `${prefix}buttons management data ${code[0].id} tariktunai`, buttonText: { displayText: 'TARIK TUNAI' }, type: 1 }, 
-                                { buttonId: `${prefix}buttons management data ${code[0].id} events`, buttonText: { displayText: 'EVENTS' }, type: 1 }, 
-                                { buttonId: `${prefix}buttons management data ${code[0].id} premium`, buttonText: { displayText: 'PREMIUM' }, type: 1 }
+                                { buttonId: `${prefix}buttons management data ${jidCode[0].id} tariktunai`, buttonText: { displayText: 'TARIK TUNAI' }, type: 1 }, 
+                                { buttonId: `${prefix}buttons management data ${jidCode[0].id} events`, buttonText: { displayText: 'EVENTS' }, type: 1 }, 
+                                { buttonId: `${prefix}buttons management data ${jidCode[0].id} premium`, buttonText: { displayText: 'PREMIUM' }, type: 1 }
                             ];
                             var content = `Your Data!\n\n`
-                            content += `Users: @${code[0].id}\n`
-                            content += `WA: https://wa.me/${code[0].number}\n`
+                            content += `Users: @${jidCode[0].id}\n`
+                            content += `WA: https://wa.me/${jidCode[0].number}\n`
                             await m.reply('Data Di Temukan!');
                             await razzaq.sendButtonText(m.chat, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] });
                         } else {
