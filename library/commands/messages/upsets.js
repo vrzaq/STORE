@@ -191,7 +191,7 @@ module.exports = {
                                 }, { 
                                     text: `@spaa_aja_`,  
                                     id: `${prefix}list management masukan`
-                                }
+                                },
                             ];
                             var rows = [];
                             for (var y of content) {
@@ -224,8 +224,9 @@ module.exports = {
                                                    id: `${prefix}list management data fadhlan887 module pembayaran gopay 500`
                                                 }, { 
                                                    text: `1.000.000 JT`,  
-                                                id: `${prefix}list management data fadhlan887 module pembayaran gopay 1000`
-                                            }];
+                                                   id: `${prefix}list management data fadhlan887 module pembayaran gopay 1000`
+                                                },
+                                            ];
                                             var rows = [];
                                             for (var y of content) {
                                                 rows.push({ title: y.text, rowId: y.id });
@@ -257,37 +258,39 @@ module.exports = {
                                 };
                             };
                         } else if((m.args[1]) === 'belajar') {
-                            var content = [{ 
-                                text: `Apa yang dimaksud dengan management?`, 
-                                id: `${prefix}list management adalah` 
-                            }, { 
-                                text: `Apa tujuan dari management?`, 
-                                id: `${prefix}list management tujuan` 
-                            }, { 
-                                text: `Apa yang dikerjakan oleh management?`, 
-                                id: `${prefix}list management dikerjakan` 
-                            }, {
-                                text: `Apa saja contoh management?`, 
-                                id: `${prefix}list management contoh` 
-                            }, { 
-                                text: `Apa yang dimaksud dengan hakikat management?`, 
-                                id: `${prefix}list management hakikat` 
-                            }, { 
-                                text: `Apa saja 5 fungsi management?`, 
-                                id: `${prefix}list management fungsi` 
-                            }, { 
-                                text: `Apa saja dasar dasar management?`, 
-                                id: `${prefix}list management dasar` 
-                            }, { 
-                                text: `Siapa saja yang membutuhkan management?`, 
-                                id: `${prefix}list management membutuhkan` 
-                            }, { 
-                                text: `Apa saja ciri-ciri management?`, 
-                                id: `${prefix}list management ciriciri` 
-                            }, { 
-                                text: `Talent management adalah?`, 
-                                id: `${prefix}list management talent` 
-                            }];
+                            var content = [
+                                { 
+                                    text: `Apa yang dimaksud dengan management?`, 
+                                    id: `${prefix}list management adalah` 
+                                }, { 
+                                    text: `Apa tujuan dari management?`, 
+                                    id: `${prefix}list management tujuan` 
+                                }, { 
+                                    text: `Apa yang dikerjakan oleh management?`, 
+                                    id: `${prefix}list management dikerjakan` 
+                                }, {
+                                    text: `Apa saja contoh management?`, 
+                                    id: `${prefix}list management contoh` 
+                                }, { 
+                                    text: `Apa yang dimaksud dengan hakikat management?`, 
+                                    id: `${prefix}list management hakikat` 
+                                }, { 
+                                    text: `Apa saja 5 fungsi management?`, 
+                                    id: `${prefix}list management fungsi` 
+                                }, { 
+                                    text: `Apa saja dasar dasar management?`, 
+                                    id: `${prefix}list management dasar` 
+                                }, { 
+                                    text: `Siapa saja yang membutuhkan management?`, 
+                                    id: `${prefix}list management membutuhkan` 
+                                }, { 
+                                    text: `Apa saja ciri-ciri management?`, 
+                                    id: `${prefix}list management ciriciri` 
+                                }, { 
+                                    text: `Talent management adalah?`, 
+                                    id: `${prefix}list management talent` 
+                                },
+                            ];
                             var rows = [];
                             for (var y of content) {
                                 rows.push({ title: y.text, rowId: y.id });
