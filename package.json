@@ -12,22 +12,7 @@
         "type": "git",
         "url": "git+https://github.com/vrzaq/STORE.git"
     },
-    "keywords": [ 
-        "termux", 
-        "whatsapp", 
-        "wabase-md", 
-        "base", 
-        "baileys-md", 
-        "bot", 
-        "bot-md", 
-        "multi-device",
-        "termux-whatsapp-bot",
-        "whatsapp-bot",
-        "js-whatsapp",
-        "Games-wabot",
-        "wabot-aq",
-        "MD"
-    ],
+    "keywords": [],
     "author": "Arifi Razzaq.",
     "license": "ISC",
     "bugs": {
