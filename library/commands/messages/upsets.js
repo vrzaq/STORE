@@ -5,7 +5,7 @@ const { flatDirectly } = require('../../validation/importantly/flatDirectly.js')
 const { configuration } = require('../../validation/arguments/configuration.js');
 const { getFunctions } = require('../../validation/events/binds.js');
 const { isUrl, jsonformat, byteToSize } = getFunctions;
-const { yts, node_fetch, hxz, boom, baileys, fs, chalk, PhoneNumber, FileType, util, child_process } = new flatDirectly();
+const { yts, node_fetch, hxz, boom, baileys, fs, chalk, PhoneNumber, FileType, util, child_process, syntaxerror, jawaskrip } = new flatDirectly();
 const { exec, spawn } = child_process;
 const { default: makeWASocket, DisconnectReason, AnyMessageContent, delay, generateForwardMessageContent, isJidGroup, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, fetchLatestBaileysVersion, jidDecode, getContentType, proto } = baileys;
 
@@ -589,11 +589,15 @@ module.exports = {
                     if(m.body.startsWith("=>")) {
                         if(!razzaq.decodeJid(m.key?.fromMe)) return;
                         try {
-                            var evaled = await eval(m.body.slice(2))
-                            if(typeof evaled !== 'string') evaled = require('util').inspect(evaled)
-                            m.reply(evaled)
+                            let compiled = await jawaskrip.compile(m.args.join(" "))
+                            var text = util.format(await eval(`;(async () => { ${compiled} })()`))
+                            razzaq.sendMessage(m.chat, { text }, { quoted: m }) 
                         } catch (err) {
-                            m.reply(util.format(err))
+                            let _syntax = ""
+                            let _err = util.format(err)
+                            let err = syntaxerror(m.args, "Execution Function", { allowReturnOutsideFunction: true, allowAwaitOutsideFunction: true, sourceType: "module" })
+                            if(err) _syntax = err + "\n\n"
+                            m.reply(util.format(_syntax + _err))
                         };
                     };
                     if(m.body.startsWith(">")) {
