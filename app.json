@@ -1,0 +1,7 @@
+{
+	"name": "tulis_nama_mu",
+	"description": "WhatsApp Bot Using Lib Baileys",
+	"repository": "https://github.com/vrzaq/razzaq-bot",
+	"logo": "https://node-js-sample.herokuapp.com/node.png",
+    "keywords": [ "multi-device" ]
+}
