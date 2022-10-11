@@ -75,7 +75,7 @@ async function sessions(path) {
         razzaq.ev.on('creds.update', saveCreds);
         razzaq.ev.on('group-participants.update', async (jid) => {
             try {
-                let meta = await razzaq.groupMetadata(jid.id).catch(console.info);
+                let meta = await razzaq.groupMetadata(jid.id);
                 if(configuration.data.jid[0].message.switching.welcome) {
                     for (let x of jid.participants) {
                         if(x == razzaq.user.id) return;
@@ -107,6 +107,8 @@ async function sessions(path) {
                 if(err.Error === 'Connection Closed') {
                     return;
                 } else if(err.Error === 'rate-overlimit') {
+                    return;
+                } else if(err.Error === 'forbidden') {
                     return;
                 } else {
                     console.log(err);
