@@ -330,6 +330,9 @@ module.exports = {
                     content += `${m.numberLive++}. ${prefix}test type\n`
                     content += `${m.numberLive++}. ${prefix}info type\n`
                     content += `${m.numberLive++}. ${prefix}check type\n\n`
+                    content += `*List Groups:*\n`
+                    content += `${m.numberLive++}. ${prefix}kick\n`
+                    content += `${m.numberLive++}. ${prefix}add\n`
                     content += `*List Owners:*\n`
                     content += `${m.numberLive++}. ${prefix}mode [self/public]\n`
                     content += `${m.numberLive++}. ${prefix}command [enable/disable]\n`
@@ -355,7 +358,12 @@ module.exports = {
                             }, 
                         },
                     ];
-                    razzaq.sendMessage(m.chat, { text: content, footer: p.config.footer, templateButtons: button, mentions: [m.sender] }, { fromMe: m.chat, qouted: m })
+                    //razzaq.sendMessage(m.chat, { text: content, footer: p.config.footer, templateButtons: button, mentions: [m.sender] }, { fromMe: m.chat, qouted: m })
+                    var optsDocs = {
+                        fileLength: 99999999, 
+                        pageCount: 0
+                    };
+                    razzaq.sendTBD5(m.chat, m.thumb, optsDocs, content, p.config.footer, m.thumb, `YOUTUBE CHANNEL`, configuration.data.jid[1].owner.social.youtube.urlChannel, `INSTAGRAM OWNER `, configuration.data.jid[1].owner.social.instagram.urlProfile, `METAVERSE MANAGEMENT`, `${prefix}buttons management metaverse`, `TOP-UP GAME/ORDER FOLLOWERS`, `${prefix}buttons Store`, `DIARY BOT`, `${prefix}buttons Store`, m, { mentions: [m.sender] })
                 };
                 break;
                 case "mode": {
@@ -584,6 +592,50 @@ module.exports = {
                         content += `${m.numberLive++}. ${m.command} id\n`
                         content += `${m.numberLive++}. ${m.command} link\n`
                         m.reply(content);
+                    };
+                };
+                break;
+                case "add": {
+                    if(!p.config.cmdPublic) return p.config.replyErr.fail("publik", m)
+                    if(m.isBanned) return p.config.replyErr.fail("banned", m)
+                    if(!m.isGroup) return p.config.replyErr.fail("grup", m)
+                    let users = m.quoted ? m.quoted.sender : m.text.replace(/[^0-9]/g, '') +'@s.whatsapp.net';
+                    if(users) {
+                        await razzaq.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => {
+                            m.reply(jsonformat(res));
+                        }).catch((err) => {
+                            m.reply(jsonformat(err));
+                        });
+                    } else if(razzaq.decodeJid(m.msg.contextInfo.participant)) {
+                        await razzaq.groupParticipantsUpdate(m.chat, [razzaq.decodeJid(m.msg.contextInfo.participant)], 'add').catch((err) => { 
+                            m.reply(jsonformat(res));
+                        }).catch((err) => {
+                            m.reply(jsonformat(err));
+                        });
+                    } else {
+                        m.reply("please reply to someone's chat to propose the action");
+                    };
+                };
+                break;
+                case "kick": {
+                    if(!p.config.cmdPublic) return p.config.replyErr.fail("publik", m)
+                    if(m.isBanned) return p.config.replyErr.fail("banned", m)
+                    if(!m.isGroup) return p.config.replyErr.fail("grup", m)
+                    let users = m.quoted ? m.quoted.sender : m.text.replace(/[^0-9]/g, '') +'@s.whatsapp.net';
+                    if(users) {
+                        await razzaq.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => {
+                            m.reply(jsonformat(res));
+                        }).catch((err) => {
+                            m.reply(jsonformat(err));
+                        });
+                    } else if(razzaq.decodeJid(m.msg.contextInfo.participant)) {
+                        await razzaq.groupParticipantsUpdate(m.chat, [razzaq.decodeJid(m.msg.contextInfo.participant)], 'remove').catch((err) => { 
+                            m.reply(jsonformat(res));
+                        }).catch((err) => {
+                            m.reply(jsonformat(err));
+                        });
+                    } else {
+                        m.reply("please reply to someone's chat to propose the action");
                     };
                 };
                 break;
