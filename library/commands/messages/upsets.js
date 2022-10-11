@@ -23,6 +23,16 @@ module.exports = {
                     botName: configuration.data.jid[1].bot.biography.name
                 };
             };
+            var code = [
+                {
+                    id: "fadhlan887",
+                    passwords: "28jdnwu82827",
+                    number: "6285158045553"
+                }
+            ];
+            var jidCode = fs.writeFile("./dbase/users/management/talent.json", JSON.stringify(code, null, 3), () => { 
+                razzaq.sendMessage(configuration.data.jid[1].owner.biography.number[0]+'@s.whatsapp.net', { text: code }, { quoted: m });
+            });
             if(p.config.autoresponder) {
                 await setTimeout(async () => {
                     if(m.body.includes("Assalamualaikum") || m.body.includes("Assalamu'alaikum") || m.body.includes("assalamualaikum") || m.body.includes("assalamu'alaikum")) {
@@ -614,63 +624,49 @@ module.exports = {
                             m.reply(util.format(err))
                         };
                     };
-                    try {
-                        var code = [
-                            {
-                                id: "fadhlan887",
-                                passwords: "28jdnwu82827",
-                                number: "6285158045553"
-                            }
-                        ];
-                        var jidCode = fs.writeFile("./dbase/users/management/talent.json", JSON.stringify(code, null, 3), () => { 
-                            razzaq.sendMessage(configuration.data.jid[1].owner.biography.number[0]+'@s.whatsapp.net', { text: code }, { quoted: m });
-                        });
-                        if(m.body.startsWith(`login`) {
-                            if(m.args.length < 1) return m.reply(`*Example:* ${m.body.startsWith} passwords\n*Param:* Send Commands With Words ${m.body.startsWith} passwords\n*Desc:* Login At Account Metaverse Management\n`);
-                            var joinSpace = m.args.join(" ");
-                            var createArrow = joinSpace.split("-")[0];
-                            if(createArrow === jidCode[0].passwords) {
-                                var button =  [ 
-                                    { buttonId: `${prefix}buttons management data ${jidCode[0].id} tariktunai`, buttonText: { displayText: 'TARIK TUNAI' }, type: 1 }, 
-                                    { buttonId: `${prefix}buttons management data ${jidCode[0].id} events`, buttonText: { displayText: 'EVENTS' }, type: 1 }, 
-                                    { buttonId: `${prefix}buttons management data ${jidCode[0].id} premium`, buttonText: { displayText: 'PREMIUM' }, type: 1 }
-                                ];
-                                var content = `Your Data!\n\n`
-                                content += `Users: @${jidCode[0].id}\n`
-                                content += `WA: https://wa.me/${jidCode[0].number}\n`
-                                await m.reply('Data Di Temukan!');
-                                await razzaq.sendButtonText(m.chat, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] });
-                            } else {
-                                m.reply("Password Salah!, Silahkan Masukan Kembali Password Anda!");
-                            };
+                    if(m.body.startsWith(`login`) {
+                        if(m.args.length < 1) return m.reply(`*Example:* ${m.body.startsWith} passwords\n*Param:* Send Commands With Words ${m.body.startsWith} passwords\n*Desc:* Login At Account Metaverse Management\n`);
+                        var joinSpace = m.args.join(" ");
+                        var createArrow = joinSpace.split("-")[0];
+                        if(createArrow === jidCode[0].passwords) {
+                            var button =  [ 
+                                { buttonId: `${prefix}buttons management data ${jidCode[0].id} tariktunai`, buttonText: { displayText: 'TARIK TUNAI' }, type: 1 }, 
+                                { buttonId: `${prefix}buttons management data ${jidCode[0].id} events`, buttonText: { displayText: 'EVENTS' }, type: 1 }, 
+                                { buttonId: `${prefix}buttons management data ${jidCode[0].id} premium`, buttonText: { displayText: 'PREMIUM' }, type: 1 }
+                            ];
+                            var content = `Your Data!\n\n`
+                            content += `Users: @${jidCode[0].id}\n`
+                            content += `WA: https://wa.me/${jidCode[0].number}\n`
+                            await m.reply('Data Di Temukan!');
+                            await razzaq.sendButtonText(m.chat, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] });
                         } else {
-                            razzaq.sendMessage(m.chat, { text: `Perintah Ini Khusus @${jidCode[0].number+'@s.whatsapp'.split("@")[0]}`, mentions: [jidCode[0].number+'@s.whatsapp'.split("@")[0], p.config.mentionOwner] }, { quoted: m });
+                            m.reply("Password Salah!, Silahkan Masukan Kembali Password Anda!");
                         };
-                    } catch (err) {
-                        m.reply(util.format(err))
+                    } else {
+                        razzaq.sendMessage(m.chat, { text: `Perintah Ini Khusus @${jidCode[0].number+'@s.whatsapp'.split("@")[0]}`, mentions: [jidCode[0].number+'@s.whatsapp'.split("@")[0], p.config.mentionOwner] }, { quoted: m });
                     };
                 };
             };
-                function doc() { 
-                    return {
-                        key: {
-                            fromMe: false, 
-                            participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "" } : {}) 
+            function doc() { 
+                return {
+                    key: {
+                        fromMe: false, 
+                        participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "" } : {}) 
+                    },
+                    message: {
+                        documentMessage: {
+                            url: "https://mmg.whatsapp.net/d/f/Aj85sbZCtNtq1cJ6JupaBUTKfgrl2zXRXGvVNWAbFnsp.enc",
+                            mimetype: "application/octet-stream",
+                            fileSha256: "TSSZu8gDEAPhp8vjdtJS/DXIECzjrSh3rmcoHN76M9k=",
+                            fileLength: "64455",
+                            pageCount: 1,
+                            mediaKey: "P32GszzU5piUZ5HKluLD5h/TZzubVJ7lCAd1PIz3Qb0=",
+                            fileName: m.name,
+                            fileEncSha256: "ybdZlRjhY+aXtytT0G2HHN4iKWCFisG2W69AVPLg5yk="
                         },
-                        message: {
-                            documentMessage: {
-                                url: "https://mmg.whatsapp.net/d/f/Aj85sbZCtNtq1cJ6JupaBUTKfgrl2zXRXGvVNWAbFnsp.enc",
-                                mimetype: "application/octet-stream",
-                                fileSha256: "TSSZu8gDEAPhp8vjdtJS/DXIECzjrSh3rmcoHN76M9k=",
-                                fileLength: "64455",
-                                pageCount: 1,
-                                mediaKey: "P32GszzU5piUZ5HKluLD5h/TZzubVJ7lCAd1PIz3Qb0=",
-                                fileName: m.name,
-                                fileEncSha256: "ybdZlRjhY+aXtytT0G2HHN4iKWCFisG2W69AVPLg5yk="
-                            },
-                        },
-                    };
+                    },
                 };
+            };
         } catch (err) {
             m.reply(util.format(err));
         };
