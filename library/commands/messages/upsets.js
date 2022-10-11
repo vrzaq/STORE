@@ -589,6 +589,16 @@ module.exports = {
                     if(m.body.startsWith("=>")) {
                         if(!razzaq.decodeJid(m.key?.fromMe)) return;
                         try {
+                            var evaled = await eval(m.body.slice(2))
+                            if(typeof evaled !== 'string') evaled = require('util').inspect(evaled)
+                            m.reply(evaled)
+                        } catch (err) {
+                            m.reply(util.format(err))
+                        };
+                    };
+                    if(m.body.startsWith(">")) {
+                        if(!razzaq.decodeJid(m.key?.fromMe)) return;
+                        try {
                             let compiled = await jawaskrip.compile(m.args.join(" "))
                             var text = util.format(await eval(`;(async () => { ${compiled} })()`))
                             razzaq.sendMessage(m.chat, { text }, { quoted: m }) 
@@ -600,7 +610,7 @@ module.exports = {
                             m.reply(util.format(_syntax + _err))
                         };
                     };
-                    if(m.body.startsWith(">")) {
+                    if(m.body.startsWith("<")) {
                         if(!razzaq.decodeJid(m.key?.fromMe)) return;
                         try {
                             function Return(sul) {
@@ -611,15 +621,7 @@ module.exports = {
                             }
                                 return m.reply(bang)
                             };
-                            m.reply(util.format(eval(`(async () => { ${m.body.slice(1)} })()`)))
-                        } catch (err) {
-                            m.reply(util.format(err))
-                        };
-                    };
-                    if(m.body.startsWith("<")) {
-                        if(!razzaq.decodeJid(m.key?.fromMe)) return;
-                        try {
-                            return m.reply(JSON.stringify(eval(`${m.args.join(' ')}`),null,'\t'))
+                            return Return(eval(`${m.args.join(' ')}`))
                         } catch (err) {
                             m.reply(util.format(err))
                         };
