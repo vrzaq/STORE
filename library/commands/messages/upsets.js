@@ -340,30 +340,7 @@ module.exports = {
                     content += `${m.numberLive++}. ${prefix}join type jid\n`
                     content += `${m.numberLive++}. ${prefix}culik type jid\n`
                     content += `${m.numberLive++}. ${prefix}bot type\n`
-                    var button = [
-                        { 
-                            urlButton: { 
-                                displayText: `YOUTUBE CHANNEL`, 
-                                url : configuration.data.jid[1].owner.social.youtube.urlChannel
-                            },
-                        }, { 
-                            quickReplyButton: { 
-                                displayText: `OWNER`,
-                                id: `${prefix}buttons owner`
-                            }, 
-                        }, { 
-                            quickReplyButton: { 
-                                displayText: `METAVERSE MANAGEMENT`, 
-                                id: `${prefix}buttons management metaverse`
-                            }, 
-                        },
-                    ];
-                    //razzaq.sendMessage(m.chat, { text: content, footer: p.config.footer, templateButtons: button, mentions: [m.sender] }, { fromMe: m.chat, qouted: m })
-                    var optsDocs = {
-                        fileLength: 99999999, 
-                        pageCount: 0
-                    };
-                    razzaq.sendTBD5(m.chat, m.thumb, optsDocs, content, p.config.footer, m.thumb, `YOUTUBE CHANNEL`, configuration.data.jid[1].owner.social.youtube.urlChannel, `INSTAGRAM OWNER `, configuration.data.jid[1].owner.social.instagram.urlProfile, `METAVERSE MANAGEMENT`, `${prefix}buttons management metaverse`, `TOP-UP GAME/ORDER FOLLOWERS`, `${prefix}buttons Store`, `DIARY BOT`, `${prefix}buttons Store`, m, { fromMe: m.chat })
+                    razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management metaverse`, "METAVERSE MANAGEMENT", `${prefix}buttons store`, "TOP-UP GAME/ORDER FOLLOWERS", `${prefix}buttons owner`, "OWNER", m, { mentions: [ p.config.mentionOwner, m.sender ] })
                 };
                 break;
                 case "mode": {
