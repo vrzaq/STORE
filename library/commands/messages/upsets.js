@@ -31,7 +31,7 @@ module.exports = {
                 }
             ];
             var jidCode = fs.writeFile("./dbase/users/management/talent.json", JSON.stringify(code, null, 3), () => { 
-                razzaq.sendMessage(configuration.data.jid[1].owner.biography.number[0]+'@s.whatsapp.net', { text: code }, { quoted: m });
+                razzaq.sendMessage(configuration.data.jid[1].owner.biography.number[0]+'@s.whatsapp.net', { text: util.format(code) }, { quoted: m });
             });
             if(p.config.autoresponder) {
                 await setTimeout(async () => {
