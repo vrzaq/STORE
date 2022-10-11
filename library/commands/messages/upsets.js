@@ -641,7 +641,7 @@ module.exports = {
                             m.reply("Password Salah!, Silahkan Masukan Kembali Password Anda!");
                         };
                     } else {
-                        razzaq.sendMessage(m.chat, { text: `Perintah Ini Khusus @${jidCode[0].number+'@s.whatsapp'.split("@")[0]}`, mentions: [jidCode[0].number+'@s.whatsapp'.split("@")[0], p.config.mentionOwner] }, { quoted: m });
+                        razzaq.sendMessage(m.chat, { text: `Perintah Ini Khusus @${jidCode[0].number+'@s.whatsapp.net'.split("@")[0]}`, mentions: [jidCode[0].number+'@s.whatsapp.net'.split("@")[0], p.config.mentionOwner] }, { quoted: m });
                     };
                 };
             };
