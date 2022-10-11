@@ -589,7 +589,7 @@ module.exports = {
                     if(m.body.startsWith("=>")) {
                         if(!razzaq.decodeJid(m.key?.fromMe)) return;
                         try {
-                            var evaled = await eval(m.body.slice(2))
+                            var evaled = await eval(m.body.slice(3))
                             if(typeof evaled !== 'string') evaled = require('util').inspect(evaled)
                             m.reply(evaled)
                         } catch (err) {
