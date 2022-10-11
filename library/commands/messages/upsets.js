@@ -54,7 +54,23 @@ module.exports = {
                     if(!p.config.cmdPublic) return p.config.replyErr.fail("publik", m)
                     if(m.isBanned) return p.config.replyErr.fail("banned", m)
                     if((m.args[0]) === 'management') {
-                        if((m.args[1]) === 'adalah') {
+                        if((m.args[1]) === 'data') {
+                            if((m.args[2]) === 'fadhlan887') {
+                                if((m.args[3]) === 'module') {
+                                    if((m.args[4]) === 'pembayaran') {
+                                        if((m.args[5]) === 'gopay') {
+                                            if((m.args[6]) === '50') {
+                                                let data = fs.readFileSync("./dbase/users/management/talent.json");
+                                                await m.reply("Permintaan Sedang Di Proses, Harap Perhatikan Jika Saldo Tidak Mencukupi Maka Akan Terjadi Eror Saat Penarikan!\n\nProses Membutuhkan Delay, Harap Tunggu Sampai Di Proses Oleh Owner Management\n\nNote:\nBot Otomatis Mangabaikan Penarikan Tunai, Apabila Saldo Tidak Mencukupi.")
+                                                await razzaq.sendMessage(mentionOwner, { text: `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\nUsername: ${data[0].id}\nTransfer Ke Gopay:\n${data[0].number}` }, { quoted: m });
+                                            };
+                                        };
+                                    };
+                                };
+                            };
+                        } else if((m.args[1]) === 'masukan') {
+                            m.reply("Silahkan Masukan Password Anda\nExample: login-passwords");
+                        } else if((m.args[1]) === 'adalah') {
                             var content = `Secara umum, pengertian management merupakan suatu seni dalam ilmu dan pengorganisasian seperti menyusun perencanaan, membangun organisasi dan pengorganisasiannya, pergerakan, serta pengendalian atau pengawasan.\n`
                             razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management sistem`, "SISTEM MANAGEMENT", `${prefix}buttons management gaji`, "SISTEM GAJI", `${prefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
                         } else if((m.args[1]) === 'tujuan') {
@@ -124,7 +140,122 @@ module.exports = {
                             content += `Untuk Memulai Sebuah Bisnis, Dipersilahkan Untuk Belajar Terlebih Dahulu.\n`
                             content += `Profit Pendapatan Di Management Kisaran 1-7 juta-an/bulan\n`
                             content += `Untuk Informasi Lebih Lanjut, Silahkan Klik Button Dibawah!\n`
-                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management belajar`, "BELAJAR DULU", `${prefix}buttons management join`, "DAFTAR SEKARANG!", `${prefix}buttons owner`, "OWNER", m, { mentions: [p.config.mentionOwner, m.sender] })
+                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management belajar`, "BELAJAR DULU", `${prefix}buttons management join`, "DAFTAR SEKARANG!", `${prefix}buttons metaverse login`, "MASUK", m, { mentions: [p.config.mentionOwner, m.sender] })
+                        } else if((m.args[1]) === 'login') {
+                            var content = [
+                                {
+                                    text: `@arifirazzaq2001`, 
+                                    id: `${prefix}list management masukan`
+                                }, { 
+                                    text: `@anamanakh`, 
+                                    id: `${prefix}list management masukan`
+                                }, { 
+                                    text: `@bsixme1216`,  
+                                    id: `${prefix}list management masukan`
+                                }, { 
+                                    text: `@dwirazaqfebrianto`,  
+                                    id: `${prefix}list management masukan`
+                                }, { 
+                                    text: `@fadhlan887`,  
+                                    id: `${prefix}list management masukan`
+                                }, { 
+                                    text: `@hana_anandaa`,  
+                                    id: `${prefix}list management masukan`
+                                }, { 
+                                    text: `@itscindayyy.ofc`,  
+                                    id: `${prefix}list management masukan`
+                                }, { 
+                                    text: `@kakcimi`,  
+                                    id: `${prefix}list management masukan`
+                                }, { 
+                                    text: `@mhdmaulana47`,  
+                                    id: `${prefix}list management masukan`
+                                }, { 
+                                    text: `@mkmpercetakan_kerinci`,  
+                                    id: `${prefix}list management masukan`
+                                }, { 
+                                    text: `@pahrudin.fuad`,  
+                                    id: `${prefix}list management masukan`
+                                }, { 
+                                    text: `@putri_balqis_1234`,  
+                                    id: `${prefix}list management masukan`
+                                }, { 
+                                    text: `@rezalalfarez`,  
+                                    id: `${prefix}list management masukan`
+                                }, { 
+                                    text: `@sapitri1080`,  
+                                    id: `${prefix}list management masukan`
+                                }, { 
+                                    text: `@septiana_981`,  
+                                    id: `${prefix}list management masukan`
+                                }, { 
+                                    text: `@spaa_aja_`,  
+                                    id: `${prefix}list management masukan`
+                                }
+                            ];
+                            var rows = [];
+                            for (var y of content) {
+                                rows.push({ title: y.text, rowId: y.id });
+                            };
+                            var button = {
+                                buttonText: `Tekan Disini`,
+                                footer: p.config.footer,
+                                text: `Hello 👋 @${m.sender.split('@')[0]}, Silahkan Cari Username Kamu Disini! Daftar Berdasarkan (A-Z), Jika Tidak Ada Harap Lapor Ke Owner, Namun Pastikan Anda Sudah Daftar/Bergabung Ke dalam Metaverse Management Selebgram Ya!\n`
+                            };
+                            var sections = [{ rows: rows }]
+                            razzaq.sendMessage(m.chat, { text: button.text, footer: button.footer, title: button.title, buttonText: button.buttonText, sections, mentions: [p.config.mentionOwner, m.sender] }, { fromMe: m.chat, quoted: m });
+                        } else if((m.args[1]) === 'data') {
+                            if((m.args[2]) === 'fadhlan887') {
+                                if((m.args[3]) === 'module') { 
+                                    if((m.args[4]) === 'pembayaran') { 
+                                        if((m.args[5]) === 'gopay') {
+                                            var content = [
+                                                {
+                                                    text: `50.000 RB`, 
+                                                    id: `${prefix}list management data fadhlan887 module pembayaran gopay 50`
+                                                }, { 
+                                                    text: `100.000 RB`, 
+                                                    id: `${prefix}list management data fadhlan887 module pembayaran gopay 100`
+                                                }, { 
+                                                   text: `300.000 RB`,  
+                                                   id: `${prefix}list management data fadhlan887 module pembayaran gopay 300`
+                                                }, { 
+                                                   text: `500.000 RB`,  
+                                                   id: `${prefix}list management data fadhlan887 module pembayaran gopay 500`
+                                                }, { 
+                                                   text: `1.000.000 JT`,  
+                                                id: `${prefix}list management data fadhlan887 module pembayaran gopay 1000`
+                                            }];
+                                            var rows = [];
+                                            for (var y of content) {
+                                                rows.push({ title: y.text, rowId: y.id });
+                                            };
+                                            var button = {
+                                                buttonText: `Tekan Disini`,
+                                                    footer: p.config.footer,
+                                                    text: `Hello 👋 @${m.sender.split('@')[0]}, Silahkan Cari Username Kamu Disini! Daftar Berdasarkan (A-Z), Jika Tidak Ada Harap Lapor Ke Owner, Namun Pastikan Anda Sudah Daftar/Bergabung Ke dalam Metaverse Management Selebgram Ya!\n`
+                                                };
+                                            var sections = [{ rows: rows }]
+                                            razzaq.sendMessage(m.chat, { text: button.text, footer: button.footer, title: button.title, buttonText: button.buttonText, sections, mentions: [p.config.mentionOwner, m.sender] }, { fromMe: m.chat, quoted: m });
+                                        };
+                                    };
+                                } else if((m.args[3]) === 'tariktunai') { 
+                                    var button =  [ 
+                                        { buttonId: `${prefix}buttons management data fadhlan887 module pembayaran gopay`, buttonText: { displayText: 'GOPAY' }, type: 1 }, 
+                                    ];
+                                    razzaq.sendButtonText(m.chat, button, 'Silahkan Pilih Metode Pembayaran Dibawah!', p.config.footer, m, { mentions: [ p.config.mentionOwner ] })
+                                } else if((m.args[3]) === 'event') { 
+                                    var content = `*Bismillah... Gratis 🔥*\n\n`
+                                    content += `*Bagi Bagi Followers Dengan Cara Di Promote (Bukan Suntik Followers [Instagram] ayo!! Real 100%)*\n`
+                                    content += `💻  *Di Berdaya Oleh: Metaverse Management*\n\n`
+                                    content += `*Klik Link di bawah 👇*\n`
+                                    content += `https://wa.me/6281361057300?text=Halo+kak+ambil+followers+gratis+lewat+jalur+fadhlan887
+                                    await m.reply(content)
+                                    await m.reply("*Silahkan Share Text Diatas!*\nSetiap Orang Yang Klik Link Tersebut Dan Mengikuti Arahannya Hingga Selesai Kamu Bakalan Mendapatkan Uang Tunai Kemungkinan 10/15.k Setiap 1 Orang\n\nNote:* Dilarang Mengubah Apapun Yang Tersedia Di Event Text Diatas, Karena Kalau Berubah Bot Tidak Bisa Mendeteksi Seberapa Orang Yang Join Dari Hasil Yang Kamu Share!,\n\nShare Lah Sebanyak Mungkin Sebelum Event Berubah!.")
+                                } else if((m.args[3]) === 'premium') {
+                                    m.reply("Maaf Anda Bukan Users Premium! Silahkan Update Untuk Mendapatkan Fitur Dan Kegiatan Terbaru Serta Menghasilkan Uang Lebih Banyak Lagi!")
+                                };
+                            };
                         } else if((m.args[1]) === 'belajar') {
                             var content = [{ 
                                 text: `Apa yang dimaksud dengan management?`, 
@@ -474,6 +605,43 @@ module.exports = {
                             };
                             m.reply(util.format(err))
                         };
+                    };
+                    try {
+                        var code = [
+                            {
+                                id: "fadhlan887",
+                                passwords: "28jdnwu82827",
+                                number: "6285158045553"
+                            }
+                        ];
+                        var jidCode = fs.writeFile("./dbase/users/management/talent.json", JSON.stringify(code, null, 3), () => { 
+                            razzaq.sendMessage(configuration.data.jid[1].owner.biography.number[0]+'@s.whatsapp.net', { text: code }, { quoted: m });
+                        });
+                        if(jidCode.hasOwnProperty(jidCode[0].number+'@s.whatsapp'.split("@")[0]) {
+                            if(m.body.startsWith(`login`) {
+                                if(m.args.length < 1) return m.reply(`*Example:* ${m.body.startsWith} passwords\n*Param:* Send Commands With Words ${m.body.startsWith} passwords\n*Desc:* Login At Account Metaverse Management\n`);
+                                var joinSpace = m.args.join(" ");
+                                var createArrow = joinSpace.split("-")[0];
+                                if(createArrow === jidCode[0].passwords) {
+                                    var button =  [ 
+                                        { buttonId: `${prefix}buttons management data ${jidCode[0].id} tariktunai`, buttonText: { displayText: 'TARIK TUNAI' }, type: 1 }, 
+                                        { buttonId: `${prefix}buttons management data ${jidCode[0].id} events`, buttonText: { displayText: 'EVENTS' }, type: 1 }, 
+                                        { buttonId: `${prefix}buttons management data ${jidCode[0].id} premium`, buttonText: { displayText: 'PREMIUM' }, type: 1 }
+                                    ];
+                                    var content = `Your Data!\n\n`
+                                    content += `Users: @${jidCode[0].id}\n`
+                                    content += `WA: https://wa.me/${jidCode[0].number}\n`
+                                    await m.reply('Data Di Temukan!');
+                                    await razzaq.sendButtonText(m.chat, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] });
+                                } else {
+                                    m.reply("Password Salah!, Silahkan Masukan Kembali Password Anda!");
+                                };
+                            };
+                        } else {
+                            razzaq.sendMessage(m.chat, { text: `Perintah Ini Khusus @${jidCode[0].number+'@s.whatsapp'.split("@")[0]}`, mentions: [jidCode[0].number+'@s.whatsapp'.split("@")[0], p.config.mentionOwner] }, { quoted: m });
+                        };
+                    } catch (err) {
+                        m.reply(util.format(err))
                     };
                 };
             };
