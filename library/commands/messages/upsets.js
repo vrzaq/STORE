@@ -624,7 +624,7 @@ module.exports = {
                             m.reply(util.format(err))
                         };
                     };
-                    if(m.body.startsWith(`login`) {
+                    if(m.body.startsWith(`login`)) {
                         if(m.args.length < 1) return m.reply(`*Example:* ${m.body.startsWith} passwords\n*Param:* Send Commands With Words ${m.body.startsWith} passwords\n*Desc:* Login At Account Metaverse Management\n`);
                         var joinSpace = m.args.join(" ");
                         var createArrow = joinSpace.split("-")[0];
