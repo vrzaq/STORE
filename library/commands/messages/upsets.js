@@ -355,7 +355,7 @@ module.exports = {
                             }, 
                         },
                     ];
-                    razzaq.sendMessage(m.chat, { text: content, templateButtons: button, footer: p.config.footer, mentions: [m.sender] })
+                    razzaq.sendMessage(m.chat, { captions: content, image: m.thumb, templateButtons: button, footer: p.config.footer, mentions: [m.sender] }, { fromMe: m.chat, qouted: m })
                 };
                 break;
                 case "mode": {
