@@ -363,7 +363,7 @@ module.exports = {
                         fileLength: 99999999, 
                         pageCount: 0
                     };
-                    razzaq.sendTBD5(m.chat, m.thumb, optsDocs, content, p.config.footer, m.thumb, `YOUTUBE CHANNEL`, configuration.data.jid[1].owner.social.youtube.urlChannel, `INSTAGRAM OWNER `, configuration.data.jid[1].owner.social.instagram.urlProfile, `METAVERSE MANAGEMENT`, `${prefix}buttons management metaverse`, `TOP-UP GAME/ORDER FOLLOWERS`, `${prefix}buttons Store`, `DIARY BOT`, `${prefix}buttons Store`, m, { mentions: [m.sender] })
+                    razzaq.sendTBD5(m.chat, m.thumb, optsDocs, content, p.config.footer, m.thumb, `YOUTUBE CHANNEL`, configuration.data.jid[1].owner.social.youtube.urlChannel, `INSTAGRAM OWNER `, configuration.data.jid[1].owner.social.instagram.urlProfile, `METAVERSE MANAGEMENT`, `${prefix}buttons management metaverse`, `TOP-UP GAME/ORDER FOLLOWERS`, `${prefix}buttons Store`, `DIARY BOT`, `${prefix}buttons Store`, m, { fromMe: m.chat })
                 };
                 break;
                 case "mode": {
