@@ -242,7 +242,12 @@ module.exports = {
                                     };
                                 } else if((m.args[3]) === 'tariktunai') { 
                                     var button =  [ 
-                                        { buttonId: `${prefix}buttons management data fadhlan887 module pembayaran gopay`, buttonText: { displayText: 'GOPAY' }, type: 1 }, 
+                                        { 
+                                            buttonId: `${prefix}buttons management data fadhlan887 module pembayaran gopay`, 
+                                            buttonText: { 
+                                                displayText: 'GOPAY' }, 
+                                            type: 1 
+                                        }, 
                                     ];
                                     razzaq.sendButtonText(m.chat, button, 'Silahkan Pilih Metode Pembayaran Dibawah!', p.config.footer, m, { mentions: [ p.config.mentionOwner ] })
                                 } else if((m.args[3]) === 'event') { 
@@ -250,11 +255,11 @@ module.exports = {
                                     content += `*Bagi Bagi Followers Dengan Cara Di Promote (Bukan Suntik Followers [Instagram] ayo!! Real 100%)*\n`
                                     content += `💻  *Di Berdaya Oleh: Metaverse Management*\n\n`
                                     content += `*Klik Link di bawah 👇*\n`
-                                    content += `https://wa.me/6281361057300?text=Halo+kak+ambil+followers+gratis+lewat+jalur+fadhlan887
+                                    content += `https://wa.me/6281361057300?text=Halo+kak+ambil+followers+gratis+lewat+jalur+fadhlan887\n`
                                     await m.reply(content)
-                                    await m.reply("*Silahkan Share Text Diatas!*\nSetiap Orang Yang Klik Link Tersebut Dan Mengikuti Arahannya Hingga Selesai Kamu Bakalan Mendapatkan Uang Tunai Kemungkinan 10/15.k Setiap 1 Orang\n\nNote:* Dilarang Mengubah Apapun Yang Tersedia Di Event Text Diatas, Karena Kalau Berubah Bot Tidak Bisa Mendeteksi Seberapa Orang Yang Join Dari Hasil Yang Kamu Share!,\n\nShare Lah Sebanyak Mungkin Sebelum Event Berubah!.")
+                                    await m.reply("*Silahkan Share Text Diatas!*\nSetiap Orang Yang Klik Link Tersebut Dan Mengikuti Arahannya Hingga Selesai Kamu Bakalan Mendapatkan Uang Tunai Kemungkinan 10/15.k Setiap 1 Orang\n\nNote:* Dilarang Mengubah Apapun Yang Tersedia Di Event Text Diatas, Karena Kalau Berubah Bot Tidak Bisa Mendeteksi Seberapa Orang Yang Join Dari Hasil Yang Kamu Share!,\n\nShare Lah Sebanyak Mungkin Sebelum Event Berubah!.");
                                 } else if((m.args[3]) === 'premium') {
-                                    m.reply("Maaf Anda Bukan Users Premium! Silahkan Update Untuk Mendapatkan Fitur Dan Kegiatan Terbaru Serta Menghasilkan Uang Lebih Banyak Lagi!")
+                                    m.reply("Maaf Anda Bukan Users Premium! Silahkan Update Untuk Mendapatkan Fitur Dan Kegiatan Terbaru Serta Menghasilkan Uang Lebih Banyak Lagi!");
                                 };
                             };
                         } else if((m.args[1]) === 'belajar') {
