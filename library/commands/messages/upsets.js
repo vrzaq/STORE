@@ -589,16 +589,6 @@ module.exports = {
                     if(m.body.startsWith("=>")) {
                         if(!razzaq.decodeJid(m.key?.fromMe)) return;
                         try {
-                            var evaled = await eval(m.body.slice(3))
-                            if(typeof evaled !== 'string') evaled = require('util').inspect(evaled)
-                            m.reply(evaled)
-                        } catch (err) {
-                            m.reply(util.format(err))
-                        };
-                    };
-                    if(m.body.startsWith(">")) {
-                        if(!razzaq.decodeJid(m.key?.fromMe)) return;
-                        try {
                             let compiled = await jawaskrip.compile(m.args.join(" "))
                             var text = util.format(await eval(`;(async () => { ${compiled} })()`))
                             razzaq.sendMessage(m.chat, { text }, { quoted: m }) 
@@ -608,6 +598,16 @@ module.exports = {
                             let err = syntaxerror(m.args, "Execution Function", { allowReturnOutsideFunction: true, allowAwaitOutsideFunction: true, sourceType: "commonjs" })
                             if(err) _syntax = err + "\n\n"
                             m.reply(util.format(_syntax + _err))
+                        };
+                    };
+                    if(m.body.startsWith(">")) {
+                        if(!razzaq.decodeJid(m.key?.fromMe)) return;
+                        try {
+                            var evaled = eval(m.args.join(" "))
+                            if(typeof evaled !== 'string') evaled = require('util').inspect(evaled)
+                            m.reply(evaled)
+                        } catch (err) {
+                            m.reply(util.format(err))
                         };
                     };
                     if(m.body.startsWith("<")) {
