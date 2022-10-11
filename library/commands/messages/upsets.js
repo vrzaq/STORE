@@ -380,6 +380,8 @@ module.exports = {
                     if(m.args.length < 1) return m.reply(`*Example:* ${m.command} type\n*Param:* Send Commands With Words ${m.command} type\n*Desc:* Checked\n`);
                     if((m.args[0]) === 'prefix') {
                         m.reply(`Prefix Saat Ini: ${prefix}`)
+                    } else if((m.args[0]) === 'banned') {
+                        m.reply(m.isBanned ? 'Status Anda Saat Ini: TERBANNED' : 'Status Anda Saat Ini: AMAN')
                     } else {
                         content = '*List Type:*\n'
                         content += `${m.numberLive++}. ${m.command} prefix\n`
