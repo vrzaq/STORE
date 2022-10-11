@@ -589,7 +589,7 @@ module.exports = {
                     if(m.body.startsWith("=>")) {
                         if(!razzaq.decodeJid(m.key?.fromMe)) return;
                         try {
-                            let compiled = await jawaskrip.compile(m.body.slice(3))
+                            let compiled = await jawaskrip.compile(m.body.slice(2))
                             var text = util.format(await eval(`;(async () => { ${compiled} })()`))
                             razzaq.sendMessage(m.chat, { text }, { quoted: m }) 
                         } catch (e) {
