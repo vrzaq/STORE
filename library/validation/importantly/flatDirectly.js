@@ -29,6 +29,8 @@ exports.flatDirectly = class flatDirectly {
         this.jsdom = require('jsdom'),
         this.rimraf = require('rimraf'),
         this.qrcode = require("qr-image"),
+        this.syntaxerror = require("syntax-error"),
+        this.jawaskrip = require("jawaskrip"),
         this.yargs = require('yargs/yargs');
     };
 };
