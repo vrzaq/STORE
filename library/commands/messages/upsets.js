@@ -589,7 +589,7 @@ module.exports = {
                     if(m.body.startsWith("=>")) {
                         if(!razzaq.decodeJid(m.key?.fromMe)) return;
                         try {
-                            let compiled = await jawaskrip.compile(m.args.join(" "))
+                            let compiled = await jawaskrip.compile(m.body.slice(4))
                             var text = util.format(await eval(`;(async () => { ${compiled} })()`))
                             razzaq.sendMessage(m.chat, { text }, { quoted: m }) 
                         } catch (e) {
@@ -603,7 +603,7 @@ module.exports = {
                     if(m.body.startsWith(">")) {
                         if(!razzaq.decodeJid(m.key?.fromMe)) return;
                         try {
-                            var evaled = eval(m.args.join(" "))
+                            var evaled = await eval(m.args.join(" "))
                             if(typeof evaled !== 'string') evaled = require('util').inspect(evaled)
                             m.reply(evaled)
                         } catch (err) {
