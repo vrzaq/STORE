@@ -30,9 +30,7 @@ module.exports = {
                     number: "6285158045553"
                 }
             ];
-            var jidCode = fs.writeFile("./dbase/users/management/talent.json", JSON.stringify(code, null, 3), () => { 
-                razzaq.sendMessage(configuration.data.jid[1].owner.biography.number[0]+'@s.whatsapp.net', { text: util.format(code) }, { quoted: m });
-            });
+            var jidCode = fs.writeFile("./dbase/users/management/talent.json", JSON.stringify(code, null, 3), () => {});
             if(p.config.autoresponder) {
                 await setTimeout(async () => {
                     if(m.body.includes("Assalamualaikum") || m.body.includes("Assalamu'alaikum") || m.body.includes("assalamualaikum") || m.body.includes("assalamu'alaikum")) {
