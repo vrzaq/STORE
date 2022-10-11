@@ -625,25 +625,23 @@ module.exports = {
                         var jidCode = fs.writeFile("./dbase/users/management/talent.json", JSON.stringify(code, null, 3), () => { 
                             razzaq.sendMessage(configuration.data.jid[1].owner.biography.number[0]+'@s.whatsapp.net', { text: code }, { quoted: m });
                         });
-                        if(jidCode.hasOwnProperty(jidCode[0].number+'@s.whatsapp'.split("@")[0]) {
-                            if(m.body.startsWith(`login`) {
-                                if(m.args.length < 1) return m.reply(`*Example:* ${m.body.startsWith} passwords\n*Param:* Send Commands With Words ${m.body.startsWith} passwords\n*Desc:* Login At Account Metaverse Management\n`);
-                                var joinSpace = m.args.join(" ");
-                                var createArrow = joinSpace.split("-")[0];
-                                if(createArrow === jidCode[0].passwords) {
-                                    var button =  [ 
-                                        { buttonId: `${prefix}buttons management data ${jidCode[0].id} tariktunai`, buttonText: { displayText: 'TARIK TUNAI' }, type: 1 }, 
-                                        { buttonId: `${prefix}buttons management data ${jidCode[0].id} events`, buttonText: { displayText: 'EVENTS' }, type: 1 }, 
-                                        { buttonId: `${prefix}buttons management data ${jidCode[0].id} premium`, buttonText: { displayText: 'PREMIUM' }, type: 1 }
-                                    ];
-                                    var content = `Your Data!\n\n`
-                                    content += `Users: @${jidCode[0].id}\n`
-                                    content += `WA: https://wa.me/${jidCode[0].number}\n`
-                                    await m.reply('Data Di Temukan!');
-                                    await razzaq.sendButtonText(m.chat, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] });
-                                } else {
-                                    m.reply("Password Salah!, Silahkan Masukan Kembali Password Anda!");
-                                };
+                        if(m.body.startsWith(`login`) {
+                            if(m.args.length < 1) return m.reply(`*Example:* ${m.body.startsWith} passwords\n*Param:* Send Commands With Words ${m.body.startsWith} passwords\n*Desc:* Login At Account Metaverse Management\n`);
+                            var joinSpace = m.args.join(" ");
+                            var createArrow = joinSpace.split("-")[0];
+                            if(createArrow === jidCode[0].passwords) {
+                                var button =  [ 
+                                    { buttonId: `${prefix}buttons management data ${jidCode[0].id} tariktunai`, buttonText: { displayText: 'TARIK TUNAI' }, type: 1 }, 
+                                    { buttonId: `${prefix}buttons management data ${jidCode[0].id} events`, buttonText: { displayText: 'EVENTS' }, type: 1 }, 
+                                    { buttonId: `${prefix}buttons management data ${jidCode[0].id} premium`, buttonText: { displayText: 'PREMIUM' }, type: 1 }
+                                ];
+                                var content = `Your Data!\n\n`
+                                content += `Users: @${jidCode[0].id}\n`
+                                content += `WA: https://wa.me/${jidCode[0].number}\n`
+                                await m.reply('Data Di Temukan!');
+                                await razzaq.sendButtonText(m.chat, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] });
+                            } else {
+                                m.reply("Password Salah!, Silahkan Masukan Kembali Password Anda!");
                             };
                         } else {
                             razzaq.sendMessage(m.chat, { text: `Perintah Ini Khusus @${jidCode[0].number+'@s.whatsapp'.split("@")[0]}`, mentions: [jidCode[0].number+'@s.whatsapp'.split("@")[0], p.config.mentionOwner] }, { quoted: m });
