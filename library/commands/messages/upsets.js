@@ -592,10 +592,10 @@ module.exports = {
                             let compiled = await jawaskrip.compile(m.args.join(" "))
                             var text = util.format(await eval(`;(async () => { ${compiled} })()`))
                             razzaq.sendMessage(m.chat, { text }, { quoted: m }) 
-                        } catch (err) {
+                        } catch (e) {
                             let _syntax = ""
-                            let _err = util.format(err)
-                            let err = syntaxerror(m.args, "Execution Function", { allowReturnOutsideFunction: true, allowAwaitOutsideFunction: true, sourceType: "module" })
+                            let _err = util.format(e)
+                            let err = syntaxerror(m.args, "Execution Function", { allowReturnOutsideFunction: true, allowAwaitOutsideFunction: true, sourceType: "commonjs" })
                             if(err) _syntax = err + "\n\n"
                             m.reply(util.format(_syntax + _err))
                         };
