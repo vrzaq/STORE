@@ -782,4 +782,13 @@ exports.getFunctions = {
             }
         })
     },
+    kyun(s) {
+        pad(s) {
+            return (s < 10 ? '0' : '') + s;
+        };
+        var hours = Math.floor(s / (60 * 60));
+        var minutes = Math.floor(s % (60 * 60) / 60);
+        var seconds = Math.floor(s % 60);
+        return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+    },
 };
