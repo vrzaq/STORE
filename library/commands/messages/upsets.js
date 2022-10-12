@@ -73,20 +73,20 @@ module.exports = {
                                     if((m.args[4]) === 'pembayaran') {
                                         if((m.args[5]) === 'gopay') {
                                             if((m.args[6]) === '50') {
-                                                var data = fs.readFileSync("./dbase/users/management/talent.json");
+                                                var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
                                                 var content = `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\n`
                                                 content += `Username: ${util.format(data[0].id)}\n`
                                                 content += `Transfer Ke Gopay:${util.format(data[0].number)}\n`
                                                 content += `Jumlah: 50.000\n`
                                                 var button =  [ 
                                                     { 
-                                                        buttonId: `${prefix}buttons management switch pembayaran gopay accept`, 
+                                                        buttonId: `${prefix}buttons management switch pembayaran fadhlan887 accept`, 
                                                         buttonText: { 
                                                             displayText: 'ACCEPT' 
                                                         }, 
                                                         type: 1 
                                                     }, {
-                                                        buttonId: `${prefix}buttons management switch pembayaran reject`, 
+                                                        buttonId: `${prefix}buttons management switch pembayaran fadhlan887 reject`, 
                                                         buttonText: { 
                                                             displayText: 'REJECT' 
                                                         }, 
@@ -96,20 +96,20 @@ module.exports = {
                                                 await m.reply("Permintaan Sedang Di Proses, Harap Perhatikan Jika Saldo Tidak Mencukupi Maka Akan Terjadi Eror Saat Penarikan!\n\nProses Membutuhkan Delay, Harap Tunggu Sampai Di Proses Oleh Owner Management\n\n*Note:*\nBot Otomatis Mangabaikan Penarikan Tunai, Apabila Saldo Tidak Mencukupi.")
                                                 await razzaq.sendButtonText(p.config.mentionOwner, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] })
                                             } else if((m.args[6]) === '100') {
-                                                var data = fs.readFileSync("./dbase/users/management/talent.json");
+                                                var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
                                                 var content = `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\n`
                                                 content += `Username: ${util.format(data[0].id)}\n`
                                                 content += `Transfer Ke Gopay:${util.format(data[0].number)}\n`
                                                 content += `Jumlah: 100.000\n`
                                                 var button =  [ 
                                                     { 
-                                                        buttonId: `${prefix}buttons management switch pembayaran gopay accept`, 
+                                                        buttonId: `${prefix}buttons management switch pembayaran fadhlan887 accept`, 
                                                         buttonText: { 
                                                             displayText: 'ACCEPT' 
                                                         }, 
                                                         type: 1 
                                                     }, {
-                                                        buttonId: `${prefix}buttons management switch pembayaran reject`, 
+                                                        buttonId: `${prefix}buttons management switch pembayaran fadhlan887 reject`, 
                                                         buttonText: { 
                                                             displayText: 'REJECT' 
                                                         }, 
@@ -119,20 +119,20 @@ module.exports = {
                                                 await m.reply("Permintaan Sedang Di Proses, Harap Perhatikan Jika Saldo Tidak Mencukupi Maka Akan Terjadi Eror Saat Penarikan!\n\nProses Membutuhkan Delay, Harap Tunggu Sampai Di Proses Oleh Owner Management\n\n*Note:*\nBot Otomatis Mangabaikan Penarikan Tunai, Apabila Saldo Tidak Mencukupi.")
                                                 await razzaq.sendButtonText(p.config.mentionOwner, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] })
                                             } else if((m.args[6]) === '300') {
-                                                var data = fs.readFileSync("./dbase/users/management/talent.json");
+                                                var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
                                                 var content = `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\n`
                                                 content += `Username: ${util.format(data[0].id)}\n`
                                                 content += `Transfer Ke Gopay:${util.format(data[0].number)}\n`
                                                 content += `Jumlah: 300.000\n`
                                                 var button =  [ 
                                                     { 
-                                                        buttonId: `${prefix}buttons management switch pembayaran gopay accept`, 
+                                                        buttonId: `${prefix}buttons management switch pembayaran fadhlan887 accept`, 
                                                         buttonText: { 
                                                             displayText: 'ACCEPT' 
                                                         }, 
                                                         type: 1 
                                                     }, {
-                                                        buttonId: `${prefix}buttons management switch pembayaran reject`, 
+                                                        buttonId: `${prefix}buttons management switch pembayaran fadhlan887 reject`, 
                                                         buttonText: { 
                                                             displayText: 'REJECT' 
                                                         }, 
@@ -142,20 +142,20 @@ module.exports = {
                                                 await m.reply("Permintaan Sedang Di Proses, Harap Perhatikan Jika Saldo Tidak Mencukupi Maka Akan Terjadi Eror Saat Penarikan!\n\nProses Membutuhkan Delay, Harap Tunggu Sampai Di Proses Oleh Owner Management\n\n*Note:*\nBot Otomatis Mangabaikan Penarikan Tunai, Apabila Saldo Tidak Mencukupi.")
                                                 await razzaq.sendButtonText(p.config.mentionOwner, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] })
                                             } else if((m.args[6]) === '500') {
-                                                var data = fs.readFileSync("./dbase/users/management/talent.json");
+                                                var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
                                                 var content = `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\n`
                                                 content += `Username: ${util.format(data[0].id)}\n`
                                                 content += `Transfer Ke Gopay:${util.format(data[0].number)}\n`
                                                 content += `Jumlah: 500.000\n`
                                                 var button =  [ 
                                                     { 
-                                                        buttonId: `${prefix}buttons management switch pembayaran gopay accept`, 
+                                                        buttonId: `${prefix}buttons management switch pembayaran fadhlan887 accept`, 
                                                         buttonText: { 
                                                             displayText: 'ACCEPT' 
                                                         }, 
                                                         type: 1 
                                                     }, {
-                                                        buttonId: `${prefix}buttons management switch pembayaran reject`, 
+                                                        buttonId: `${prefix}buttons management switch pembayaran fadhlan887 reject`, 
                                                         buttonText: { 
                                                             displayText: 'REJECT' 
                                                         }, 
@@ -165,20 +165,20 @@ module.exports = {
                                                 await m.reply("Permintaan Sedang Di Proses, Harap Perhatikan Jika Saldo Tidak Mencukupi Maka Akan Terjadi Eror Saat Penarikan!\n\nProses Membutuhkan Delay, Harap Tunggu Sampai Di Proses Oleh Owner Management\n\n*Note:*\nBot Otomatis Mangabaikan Penarikan Tunai, Apabila Saldo Tidak Mencukupi.")
                                                 await razzaq.sendButtonText(p.config.mentionOwner, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] })
                                             } else if((m.args[6]) === '1000') {
-                                                var data = fs.readFileSync("./dbase/users/management/talent.json");
+                                                var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
                                                 var content = `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\n`
                                                 content += `Username: ${util.format(data[0].id)}\n`
                                                 content += `Transfer Ke Gopay:${util.format(data[0].number)}\n`
                                                 content += `Jumlah: 1.000.000\n`
                                                 var button =  [ 
                                                     { 
-                                                        buttonId: `${prefix}buttons management switch pembayaran gopay accept`, 
+                                                        buttonId: `${prefix}buttons management switch pembayaran fadhlan887 accept`, 
                                                         buttonText: { 
                                                             displayText: 'ACCEPT' 
                                                         }, 
                                                         type: 1 
                                                     }, {
-                                                        buttonId: `${prefix}buttons management switch pembayaran reject`, 
+                                                        buttonId: `${prefix}buttons management switch pembayaran fadhlan887 reject`, 
                                                         buttonText: { 
                                                             displayText: 'REJECT' 
                                                         }, 
@@ -193,7 +193,7 @@ module.exports = {
                                 };
                             };
                         } else if((m.args[1]) === 'masukan') {
-                            m.reply("Silahkan Masukan Password Anda\nExample: login passwords\n\n*Note:* Kirim Melalui Chat Pribadi Bot, Guna Untuk Menjaga Identitas Password Pada Akun Talent Management Anda.");
+                            m.reply("Silahkan Masukan Password Anda\nExample: login passwords\n\n*Note:*\nKirim Melalui Chat Pribadi Bot, Guna Untuk Menjaga Identitas Password Pada Akun Talent Management Anda.");
                         } else if((m.args[1]) === 'adalah') {
                             var content = `Secara umum, pengertian management merupakan suatu seni dalam ilmu dan pengorganisasian seperti menyusun perencanaan, membangun organisasi dan pengorganisasiannya, pergerakan, serta pengendalian atau pengawasan.\n`
                             razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management sistem`, "SISTEM MANAGEMENT", `${prefix}buttons management gaji`, "SISTEM GAJI", `${prefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
@@ -260,10 +260,14 @@ module.exports = {
                     } else if((m.args[0]) === 'management') {
                         if((m.args[1]) === 'switch') {
                             if((m.args[2]) === 'pembayaran') {
-                                if((m.args[3]) === 'reject') {
-                                    razzaq.sendMessage(m.sender, { text: "Maaf Saldo Pendapatan Kamu Tidak Cukup Untuk Melakukan Tarik Tunai Untuk Saat Ini!" })
-                                } else if((m.args[3]) === 'accept') {
-                                    razzaq.sendMessage(m.sender, { text: "Berhasil Di Transfer!" })
+                                if((m.args[3]) === 'fadhlan887') {
+                                    if((m.args[4]) === 'reject') {
+                                        var data JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
+                                        razzaq.sendMessage(util.format(data[0].number+'@s.whatsapp.net', { text: "Maaf Saldo Pendapatan Kamu Tidak Cukup Untuk Melakukan Tarik Tunai Untuk Saat Ini!" })
+                                    } else if((m.args[4]) === 'accept') {
+                                        var data JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
+                                        razzaq.sendMessage(util.format(data[0].number+'@s.whatsapp.net', { text: "Berhasil Di Transfer!" })
+                                    };
                                 };
                             };
                         } else if((m.args[1]) === 'metaverse') {
@@ -389,7 +393,7 @@ module.exports = {
                                     content += `*Klik Link di bawah 👇*\n`
                                     content += `https://wa.me/6281361057300?text=Halo+kak+ambil+followers+gratis+lewat+jalur+fadhlan887\n`
                                     await m.reply(content)
-                                    await m.reply("*Silahkan Share Text Diatas!*\nSetiap Orang Yang Klik Link Tersebut Dan Mengikuti Arahannya Hingga Selesai Kamu Bakalan Mendapatkan Uang Tunai Kemungkinan 10/15.k Setiap 1 Orang\n\n*Note:* Dilarang Mengubah Apapun Yang Tersedia Di Event Text Diatas, Karena Kalau Berubah Bot Tidak Bisa Mendeteksi Seberapa Orang Yang Join Dari Hasil Yang Kamu Share!,\n\nShare Lah Sebanyak Mungkin Sebelum Event Berubah!.");
+                                    await m.reply("*Silahkan Share Text Diatas!*\nSetiap Orang Yang Klik Link Tersebut Dan Mengikuti Arahannya Hingga Selesai Kamu Bakalan Mendapatkan Uang Tunai Kemungkinan 10/15.k Setiap 1 Orang\n\n*Note:*\nDilarang Mengubah Apapun Yang Tersedia Di Event Text Diatas, Karena Kalau Berubah Bot Tidak Bisa Mendeteksi Seberapa Orang Yang Join Dari Hasil Yang Kamu Share!,\n\nShare Lah Sebanyak Mungkin Sebelum Event Berubah!.");
                                 } else if((m.args[3]) === 'premium') {
                                     m.reply("Maaf Anda Bukan Users Premium! Silahkan Update Untuk Mendapatkan Fitur Dan Kegiatan Terbaru Serta Menghasilkan Uang Lebih Banyak Lagi!");
                                 };
