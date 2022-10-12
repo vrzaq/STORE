@@ -4,7 +4,7 @@ require('dotenv').config();
 const { flatDirectly } = require('../../validation/importantly/flatDirectly.js');
 const { configuration } = require('../../validation/arguments/configuration.js');
 const { getFunctions } = require('../../validation/events/binds.js');
-const { isUrl, jsonformat, byteToSize } = getFunctions;
+const { isUrl, jsonformat, byteToSize, kyun } = getFunctions;
 const { yts, node_fetch, hxz, boom, baileys, fs, chalk, PhoneNumber, FileType, util, child_process, syntaxerror, jawaskrip } = new flatDirectly();
 const { exec, spawn } = child_process;
 const { default: makeWASocket, DisconnectReason, AnyMessageContent, delay, generateForwardMessageContent, isJidGroup, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, fetchLatestBaileysVersion, jidDecode, getContentType, proto } = baileys;
@@ -15,6 +15,7 @@ module.exports = {
             class p {
                 static config = {
                     autoresponder: configuration.data.jid[0].message.switching.autoresponder,
+                    autobio: configuration.data.jid[0].message.switching.autobio,
                     cmdPublic: configuration.data.jid[0].message.switching.cmdPublic,
                     replyErr: configuration.data.build[0].message.send,
                     footer: configuration.data.jid[1].packages.createdName+configuration.data.jid[1].owner.biography.number[0]+'@s.whatsapp.net'.split("@")[0],
@@ -62,6 +63,14 @@ module.exports = {
                     };
                 }, 3000);
             };
+            if(p.config.autobio) {
+                if(new Date() * 1 - configuration.data.jid[0].message.generator.count > 1000) {
+                    var uptime = await kyun(process.uptime())
+                    await delay(1000)
+                    await razzaq.updateProfileStatus(`Aktif Selama: ${uptime}`)
+                    configuration.data.jid[0].message.generator.count = new Date() * 1
+	            };
+	        };
             switch (m.command) {
                 case "list": {
                     if(!p.config.cmdPublic) return p.config.replyErr.fail("publik", m)
@@ -76,7 +85,7 @@ module.exports = {
                                                 var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
                                                 var content = `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\n`
                                                 content += `Username: ${util.format(data[0].id)}\n`
-                                                content += `Transfer Ke Gopay:${util.format(data[0].number)}\n`
+                                                content += `Transfer Ke Gopay: ${util.format(data[0].number)}\n`
                                                 content += `Jumlah: 50.000\n`
                                                 var button =  [ 
                                                     { 
@@ -99,7 +108,7 @@ module.exports = {
                                                 var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
                                                 var content = `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\n`
                                                 content += `Username: ${util.format(data[0].id)}\n`
-                                                content += `Transfer Ke Gopay:${util.format(data[0].number)}\n`
+                                                content += `Transfer Ke Gopay: ${util.format(data[0].number)}\n`
                                                 content += `Jumlah: 100.000\n`
                                                 var button =  [ 
                                                     { 
@@ -122,7 +131,7 @@ module.exports = {
                                                 var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
                                                 var content = `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\n`
                                                 content += `Username: ${util.format(data[0].id)}\n`
-                                                content += `Transfer Ke Gopay:${util.format(data[0].number)}\n`
+                                                content += `Transfer Ke Gopay: ${util.format(data[0].number)}\n`
                                                 content += `Jumlah: 300.000\n`
                                                 var button =  [ 
                                                     { 
@@ -145,7 +154,7 @@ module.exports = {
                                                 var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
                                                 var content = `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\n`
                                                 content += `Username: ${util.format(data[0].id)}\n`
-                                                content += `Transfer Ke Gopay:${util.format(data[0].number)}\n`
+                                                content += `Transfer Ke Gopay: ${util.format(data[0].number)}\n`
                                                 content += `Jumlah: 500.000\n`
                                                 var button =  [ 
                                                     { 
@@ -168,7 +177,7 @@ module.exports = {
                                                 var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
                                                 var content = `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\n`
                                                 content += `Username: ${util.format(data[0].id)}\n`
-                                                content += `Transfer Ke Gopay:${util.format(data[0].number)}\n`
+                                                content += `Transfer Ke Gopay: ${util.format(data[0].number)}\n`
                                                 content += `Jumlah: 1.000.000\n`
                                                 var button =  [ 
                                                     { 
@@ -263,10 +272,12 @@ module.exports = {
                                 if((m.args[3]) === 'fadhlan887') {
                                     if((m.args[4]) === 'reject') {
                                         var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
-                                        razzaq.sendMessage(util.format(data[0].number+'@s.whatsapp.net'), { text: "Maaf Saldo Pendapatan Kamu Tidak Cukup Untuk Melakukan Tarik Tunai Untuk Saat Ini!" })
+                                        await razzaq.sendMessage(util.format(data[0].number+'@s.whatsapp.net'), { text: "Maaf Saldo Pendapatan Kamu Tidak Cukup Untuk Melakukan Tarik Tunai Untuk Saat Ini!" })
+                                        await m.reply(`Laporan Berhasil Di Kirim!\nPada: ${util.format(data[0].id}\n`)
                                     } else if((m.args[4]) === 'accept') {
                                         var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
-                                        razzaq.sendMessage(util.format(data[0].number+'@s.whatsapp.net'), { text: "Berhasil Di Transfer!" })
+                                        await razzaq.sendMessage(util.format(data[0].number+'@s.whatsapp.net'), { text: "Berhasil Di Transfer!" })
+                                        await m.reply(`Laporan Berhasil Di Kirim!\nPada: ${util.format(data[0].id}\n`)
                                     };
                                 };
                             };
@@ -812,7 +823,7 @@ module.exports = {
                                 { buttonId: `${prefix}buttons management data ${p.db.talent[0].id} events`, buttonText: { displayText: 'EVENTS' }, type: 1 }, 
                                 { buttonId: `${prefix}buttons management data ${p.db.talent[0].id} premium`, buttonText: { displayText: 'PREMIUM' }, type: 1 }
                             ];
-                            var content = `Halo @${m.sender.split("@")[0]}, Berikut Adalah Data Talent Management Kamu, Yuk Semangat Ikuti Event Hariannya Biar Jadi Jutawan!*\n\n`
+                            var content = `Halo @${m.sender.split("@")[0]}, Berikut Adalah Data Talent Management Kamu, Yuk Semangat Ikuti Event Hariannya Biar Jadi Jutawan!\n\n`
                             content += `Username: @${p.db.talent[0].id}\n`
                             content += `WhatsApp: https://wa.me/${p.db.talent[0].number}\n`
                             content += `Pendapatan: 0-Rp\n`
