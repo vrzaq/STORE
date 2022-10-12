@@ -33,7 +33,7 @@ module.exports = {
                             passwords: "Batal131101",
                             number: "6281361057300"
                         },
-                    ];
+                    ],
                 };
             };
             if(p.config.autoresponder) {
