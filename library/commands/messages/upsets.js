@@ -75,7 +75,7 @@ module.exports = {
                                             if((m.args[6]) === '50') {
                                                 let data = fs.readFileSync("./dbase/users/management/talent.json");
                                                 await m.reply("Permintaan Sedang Di Proses, Harap Perhatikan Jika Saldo Tidak Mencukupi Maka Akan Terjadi Eror Saat Penarikan!\n\nProses Membutuhkan Delay, Harap Tunggu Sampai Di Proses Oleh Owner Management\n\nNote:\nBot Otomatis Mangabaikan Penarikan Tunai, Apabila Saldo Tidak Mencukupi.")
-                                                await razzaq.sendMessage(mentionOwner, { text: `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\nUsername: ${data[0].id}\nTransfer Ke Gopay:\n${data[0].number}` }, { quoted: m });
+                                                await razzaq.sendMessage(p.config.mentionOwner, { text: `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\nUsername: ${data[0].id}\nTransfer Ke Gopay:\n${data[0].number}` }, { quoted: m });
                                             };
                                         };
                                     };
