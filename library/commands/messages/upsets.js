@@ -681,7 +681,7 @@ module.exports = {
                         };
                     };
                     if(m.body.startsWith('login')) {
-                        if(m.args.length < 1) return m.reply(`*Example:* login-passwords\n*Param:* Send Commands With Words login-passwords\n*Desc:* Login At Account Metaverse Management\n`);
+                        //if(m.args.length < 0) return m.reply(`*Example:* login-passwords\n*Param:* Send Commands With Words login-passwords\n*Desc:* Login At Account Metaverse Management\n`);
                         var joinSpace = m.args.join("-").slice(1);
                         var createArrow = joinSpace.split("-")[0];
                         if(createArrow === p.db.talent[0].passwords) {
