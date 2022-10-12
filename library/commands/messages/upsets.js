@@ -682,7 +682,6 @@ module.exports = {
                     };
                     if(m.body.startsWith('login')) {
                         if(m.args.length < 1) return m.reply(`*Example:* login passwords\n*Param:* Send Commands With Words login passwords\n*Desc:* Login At Account Metaverse Management\n`);
-                        var joinSpace = m.args.split(" ");
                         if((m.args[0]) === p.db.talent[0].passwords) {
                             var button =  [ 
                                 { buttonId: `${prefix}buttons management data ${p.db.talent[0].id} tariktunai`, buttonText: { displayText: 'TARIK TUNAI' }, type: 1 }, 
