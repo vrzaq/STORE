@@ -22,14 +22,20 @@ module.exports = {
                     ownerName: configuration.data.jid[1].owner.biography.name,
                     botName: configuration.data.jid[1].bot.biography.name
                 };
+                static db = {
+                    talent: [
+                        {
+                            id: "fadhlan887",
+                            passwords: "28jdnwu82827",
+                            number: "6285158045553"
+                        }, {
+                            id: "arifirazzaq2001",
+                            passwords: "Batal131101",
+                            number: "6281361057300"
+                        },
+                    ];
+                };
             };
-            var code = [
-                {
-                    id: "fadhlan887",
-                    passwords: "28jdnwu82827",
-                    number: "6285158045553"
-                }
-            ];
             if(p.config.autoresponder) {
                 await setTimeout(async () => {
                     if(m.body.includes("Assalamualaikum") || m.body.includes("Assalamu'alaikum") || m.body.includes("assalamualaikum") || m.body.includes("assalamu'alaikum")) {
@@ -674,19 +680,19 @@ module.exports = {
                             m.reply(util.format(err))
                         };
                     };
-                    if(m.body.startsWith(`login`)) {
+                    if(m.body.startsWith('login')) {
                         if(m.args.length < 1) return m.reply(`*Example:* ${m.body.startsWith} passwords\n*Param:* Send Commands With Words ${m.body.startsWith} passwords\n*Desc:* Login At Account Metaverse Management\n`);
                         var joinSpace = m.args.join(" ");
                         var createArrow = joinSpace.split("-")[0];
-                        if(createArrow === jidCode[0].passwords) {
+                        if(createArrow === p.db.talent[0].passwords) {
                             var button =  [ 
-                                { buttonId: `${prefix}buttons management data ${jidCode[0].id} tariktunai`, buttonText: { displayText: 'TARIK TUNAI' }, type: 1 }, 
-                                { buttonId: `${prefix}buttons management data ${jidCode[0].id} events`, buttonText: { displayText: 'EVENTS' }, type: 1 }, 
-                                { buttonId: `${prefix}buttons management data ${jidCode[0].id} premium`, buttonText: { displayText: 'PREMIUM' }, type: 1 }
+                                { buttonId: `${prefix}buttons management data ${p.db.talent[0].id} tariktunai`, buttonText: { displayText: 'TARIK TUNAI' }, type: 1 }, 
+                                { buttonId: `${prefix}buttons management data ${p.db.talent[0].id} events`, buttonText: { displayText: 'EVENTS' }, type: 1 }, 
+                                { buttonId: `${prefix}buttons management data ${p.db.talent[0].id} premium`, buttonText: { displayText: 'PREMIUM' }, type: 1 }
                             ];
                             var content = `Your Data!\n\n`
-                            content += `Users: @${jidCode[0].id}\n`
-                            content += `WA: https://wa.me/${jidCode[0].number}\n`
+                            content += `Users: @${p.db.talent[0].id}\n`
+                            content += `WA: https://wa.me/${p.db.talent[0].number}\n`
                             await m.reply('Data Di Temukan!');
                             await razzaq.sendButtonText(m.chat, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] });
                         } else {
