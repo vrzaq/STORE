@@ -82,7 +82,7 @@ module.exports = {
                                 };
                             };
                         } else if((m.args[1]) === 'masukan') {
-                            m.reply("Silahkan Masukan Password Anda\nExample: login-passwords");
+                            m.reply("Silahkan Masukan Password Anda\nExample: login passwords");
                         } else if((m.args[1]) === 'adalah') {
                             var content = `Secara umum, pengertian management merupakan suatu seni dalam ilmu dan pengorganisasian seperti menyusun perencanaan, membangun organisasi dan pengorganisasiannya, pergerakan, serta pengendalian atau pengawasan.\n`
                             razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management sistem`, "SISTEM MANAGEMENT", `${prefix}buttons management gaji`, "SISTEM GAJI", `${prefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
@@ -681,10 +681,9 @@ module.exports = {
                         };
                     };
                     if(m.body.startsWith('login')) {
-                        //if(m.args.length < 0) return m.reply(`*Example:* login-passwords\n*Param:* Send Commands With Words login-passwords\n*Desc:* Login At Account Metaverse Management\n`);
-                        var joinSpace = m.args.join("-").slice(1);
-                        var createArrow = joinSpace.split("-")[0];
-                        if(createArrow === p.db.talent[0].passwords) {
+                        if(m.args.length < 1) return m.reply(`*Example:* login passwords\n*Param:* Send Commands With Words login passwords\n*Desc:* Login At Account Metaverse Management\n`);
+                        var joinSpace = m.args.split(" ");
+                        if((m.args[0]) === p.db.talent[0].passwords) {
                             var button =  [ 
                                 { buttonId: `${prefix}buttons management data ${p.db.talent[0].id} tariktunai`, buttonText: { displayText: 'TARIK TUNAI' }, type: 1 }, 
                                 { buttonId: `${prefix}buttons management data ${p.db.talent[0].id} events`, buttonText: { displayText: 'EVENTS' }, type: 1 }, 
