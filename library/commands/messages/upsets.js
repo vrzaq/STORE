@@ -95,10 +95,98 @@ module.exports = {
                                                 ];
                                                 await m.reply("Permintaan Sedang Di Proses, Harap Perhatikan Jika Saldo Tidak Mencukupi Maka Akan Terjadi Eror Saat Penarikan!\n\nProses Membutuhkan Delay, Harap Tunggu Sampai Di Proses Oleh Owner Management\n\n*Note:*\nBot Otomatis Mangabaikan Penarikan Tunai, Apabila Saldo Tidak Mencukupi.")
                                                 await razzaq.sendButtonText(p.config.mentionOwner, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] })
-                                            } elsif((m.args[6]) === '100) {
-                                                let data = fs.readFileSync("./dbase/users/management/talent.json");
+                                            } else if((m.args[6]) === '100') {
+                                                var data = fs.readFileSync("./dbase/users/management/talent.json");
+                                                var content = `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\n`
+                                                content += `Username: ${util.format(data[0].id)}\n`
+                                                content += `Transfer Ke Gopay:${util.format(data[0].number)}\n`
+                                                content += `Jumlah: 100.000\n`
+                                                var button =  [ 
+                                                    { 
+                                                        buttonId: `${prefix}buttons management switch pembayaran gopay accept`, 
+                                                        buttonText: { 
+                                                            displayText: 'ACCEPT' 
+                                                        }, 
+                                                        type: 1 
+                                                    }, {
+                                                        buttonId: `${prefix}buttons management switch pembayaran reject`, 
+                                                        buttonText: { 
+                                                            displayText: 'REJECT' 
+                                                        }, 
+                                                        type: 1 
+                                                    },
+                                                ];
                                                 await m.reply("Permintaan Sedang Di Proses, Harap Perhatikan Jika Saldo Tidak Mencukupi Maka Akan Terjadi Eror Saat Penarikan!\n\nProses Membutuhkan Delay, Harap Tunggu Sampai Di Proses Oleh Owner Management\n\n*Note:*\nBot Otomatis Mangabaikan Penarikan Tunai, Apabila Saldo Tidak Mencukupi.")
-                                                await razzaq.sendMessage(p.config.mentionOwner, { text: `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\nUsername: ${util.format(data[0].id)}\nTransfer Ke Gopay:\n${util.format(data[0].number)}` }, { quoted: m });
+                                                await razzaq.sendButtonText(p.config.mentionOwner, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] })
+                                            } else if((m.args[6]) === '300') {
+                                                var data = fs.readFileSync("./dbase/users/management/talent.json");
+                                                var content = `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\n`
+                                                content += `Username: ${util.format(data[0].id)}\n`
+                                                content += `Transfer Ke Gopay:${util.format(data[0].number)}\n`
+                                                content += `Jumlah: 300.000\n`
+                                                var button =  [ 
+                                                    { 
+                                                        buttonId: `${prefix}buttons management switch pembayaran gopay accept`, 
+                                                        buttonText: { 
+                                                            displayText: 'ACCEPT' 
+                                                        }, 
+                                                        type: 1 
+                                                    }, {
+                                                        buttonId: `${prefix}buttons management switch pembayaran reject`, 
+                                                        buttonText: { 
+                                                            displayText: 'REJECT' 
+                                                        }, 
+                                                        type: 1 
+                                                    },
+                                                ];
+                                                await m.reply("Permintaan Sedang Di Proses, Harap Perhatikan Jika Saldo Tidak Mencukupi Maka Akan Terjadi Eror Saat Penarikan!\n\nProses Membutuhkan Delay, Harap Tunggu Sampai Di Proses Oleh Owner Management\n\n*Note:*\nBot Otomatis Mangabaikan Penarikan Tunai, Apabila Saldo Tidak Mencukupi.")
+                                                await razzaq.sendButtonText(p.config.mentionOwner, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] })
+                                            } else if((m.args[6]) === '500') {
+                                                var data = fs.readFileSync("./dbase/users/management/talent.json");
+                                                var content = `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\n`
+                                                content += `Username: ${util.format(data[0].id)}\n`
+                                                content += `Transfer Ke Gopay:${util.format(data[0].number)}\n`
+                                                content += `Jumlah: 500.000\n`
+                                                var button =  [ 
+                                                    { 
+                                                        buttonId: `${prefix}buttons management switch pembayaran gopay accept`, 
+                                                        buttonText: { 
+                                                            displayText: 'ACCEPT' 
+                                                        }, 
+                                                        type: 1 
+                                                    }, {
+                                                        buttonId: `${prefix}buttons management switch pembayaran reject`, 
+                                                        buttonText: { 
+                                                            displayText: 'REJECT' 
+                                                        }, 
+                                                        type: 1 
+                                                    },
+                                                ];
+                                                await m.reply("Permintaan Sedang Di Proses, Harap Perhatikan Jika Saldo Tidak Mencukupi Maka Akan Terjadi Eror Saat Penarikan!\n\nProses Membutuhkan Delay, Harap Tunggu Sampai Di Proses Oleh Owner Management\n\n*Note:*\nBot Otomatis Mangabaikan Penarikan Tunai, Apabila Saldo Tidak Mencukupi.")
+                                                await razzaq.sendButtonText(p.config.mentionOwner, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] })
+                                            } else if((m.args[6]) === '1000') {
+                                                var data = fs.readFileSync("./dbase/users/management/talent.json");
+                                                var content = `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\n`
+                                                content += `Username: ${util.format(data[0].id)}\n`
+                                                content += `Transfer Ke Gopay:${util.format(data[0].number)}\n`
+                                                content += `Jumlah: 1.000.000\n`
+                                                var button =  [ 
+                                                    { 
+                                                        buttonId: `${prefix}buttons management switch pembayaran gopay accept`, 
+                                                        buttonText: { 
+                                                            displayText: 'ACCEPT' 
+                                                        }, 
+                                                        type: 1 
+                                                    }, {
+                                                        buttonId: `${prefix}buttons management switch pembayaran reject`, 
+                                                        buttonText: { 
+                                                            displayText: 'REJECT' 
+                                                        }, 
+                                                        type: 1 
+                                                    },
+                                                ];
+                                                await m.reply("Permintaan Sedang Di Proses, Harap Perhatikan Jika Saldo Tidak Mencukupi Maka Akan Terjadi Eror Saat Penarikan!\n\nProses Membutuhkan Delay, Harap Tunggu Sampai Di Proses Oleh Owner Management\n\n*Note:*\nBot Otomatis Mangabaikan Penarikan Tunai, Apabila Saldo Tidak Mencukupi.")
+                                                await razzaq.sendButtonText(p.config.mentionOwner, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] })
                                             }
                                         };
                                     };
