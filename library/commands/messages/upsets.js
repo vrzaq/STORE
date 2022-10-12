@@ -273,11 +273,11 @@ module.exports = {
                                     if((m.args[4]) === 'reject') {
                                         var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
                                         await razzaq.sendMessage(util.format(data[0].number+'@s.whatsapp.net'), { text: "Maaf Saldo Pendapatan Kamu Tidak Cukup Untuk Melakukan Tarik Tunai Untuk Saat Ini!" })
-                                        await m.reply(`Laporan Berhasil Di Kirim!\nPada: ${util.format(data[0].id})\n`)
+                                        await m.reply(`Laporan Berhasil Di Kirim!\nPada: ${util.format(data[0].id)}\n`)
                                     } else if((m.args[4]) === 'accept') {
                                         var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
                                         await razzaq.sendMessage(util.format(data[0].number+'@s.whatsapp.net'), { text: "Berhasil Di Transfer!" })
-                                        await m.reply(`Laporan Berhasil Di Kirim!\nPada: ${util.format(data[0].id})\n`)
+                                        await m.reply(`Laporan Berhasil Di Kirim!\nPada: ${util.format(data[0].id)}\n`)
                                     };
                                 };
                             };
