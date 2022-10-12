@@ -147,7 +147,7 @@ module.exports = {
                             content += `Untuk Memulai Sebuah Bisnis, Dipersilahkan Untuk Belajar Terlebih Dahulu.\n`
                             content += `Profit Pendapatan Di Management Kisaran 1-7 juta-an/bulan\n`
                             content += `Untuk Informasi Lebih Lanjut, Silahkan Klik Button Dibawah!\n`
-                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management belajar`, "BELAJAR DULU", `${prefix}buttons management join`, "DAFTAR SEKARANG!", `${prefix}buttons metaverse login`, "MASUK", m, { mentions: [p.config.mentionOwner, m.sender] })
+                            razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management belajar`, "BELAJAR DULU", `${prefix}buttons management join`, "DAFTAR SEKARANG!", `${prefix}buttons management login`, "MASUK", m, { mentions: [p.config.mentionOwner, m.sender] })
                         } else if((m.args[1]) === 'login') {
                             var content = [
                                 {
@@ -332,7 +332,7 @@ module.exports = {
                     content += `${m.numberLive++}. ${prefix}check type\n\n`
                     content += `*List Groups:*\n`
                     content += `${m.numberLive++}. ${prefix}kick\n`
-                    content += `${m.numberLive++}. ${prefix}add\n`
+                    content += `${m.numberLive++}. ${prefix}add\n\n`
                     content += `*List Owners:*\n`
                     content += `${m.numberLive++}. ${prefix}mode [self/public]\n`
                     content += `${m.numberLive++}. ${prefix}command [enable/disable]\n`
