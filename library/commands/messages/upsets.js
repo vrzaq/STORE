@@ -262,10 +262,10 @@ module.exports = {
                             if((m.args[2]) === 'pembayaran') {
                                 if((m.args[3]) === 'fadhlan887') {
                                     if((m.args[4]) === 'reject') {
-                                        var data JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
+                                        var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
                                         razzaq.sendMessage(util.format(data[0].number+'@s.whatsapp.net', { text: "Maaf Saldo Pendapatan Kamu Tidak Cukup Untuk Melakukan Tarik Tunai Untuk Saat Ini!" })
                                     } else if((m.args[4]) === 'accept') {
-                                        var data JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
+                                        var data = JSON.parse(fs.readFileSync("./dbase/users/management/talent.json"));
                                         razzaq.sendMessage(util.format(data[0].number+'@s.whatsapp.net', { text: "Berhasil Di Transfer!" })
                                     };
                                 };
