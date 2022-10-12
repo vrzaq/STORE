@@ -682,15 +682,18 @@ module.exports = {
                     };
                     if(m.body.startsWith('login')) {
                         if(m.args.length < 1) return m.reply(`*Example:* login passwords\n*Param:* Send Commands With Words login passwords\n*Desc:* Login At Account Metaverse Management\n`);
+                        if(m.isGroup) return p.config.replyErr.fail("pribadi", m)
                         if((m.args[0]) === p.db.talent[0].passwords) {
                             var button =  [ 
                                 { buttonId: `${prefix}buttons management data ${p.db.talent[0].id} tariktunai`, buttonText: { displayText: 'TARIK TUNAI' }, type: 1 }, 
                                 { buttonId: `${prefix}buttons management data ${p.db.talent[0].id} events`, buttonText: { displayText: 'EVENTS' }, type: 1 }, 
                                 { buttonId: `${prefix}buttons management data ${p.db.talent[0].id} premium`, buttonText: { displayText: 'PREMIUM' }, type: 1 }
                             ];
-                            var content = `Your Data!\n\n`
-                            content += `Users: @${p.db.talent[0].id}\n`
-                            content += `WA: https://wa.me/${p.db.talent[0].number}\n`
+                            var content = `*Halo *${p.db.talent[0].id}*, Berikut Adalah Data Talent Management Kamu, Yuk Semangat Ikuti Event Hariannya Biar Jadi Jutawan!*\n\n`
+                            content += `*${m.ucapanWaktu} - ${m.moment} WIB*\n\n`
+                            content += `Username: @${p.db.talent[0].id}\n`
+                            content += `WhatsApp: https://wa.me/${p.db.talent[0].number}\n`
+                            content += `Pendapatan: 0-Rp\n`
                             await m.reply('Data Di Temukan!');
                             await razzaq.sendButtonText(m.chat, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] });
                             fs.writeFile("./dbase/users/management/talent.json", JSON.stringify(p.db.talent, null, 3), () => {})
