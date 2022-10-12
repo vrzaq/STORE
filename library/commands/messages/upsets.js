@@ -73,16 +73,39 @@ module.exports = {
                                     if((m.args[4]) === 'pembayaran') {
                                         if((m.args[5]) === 'gopay') {
                                             if((m.args[6]) === '50') {
+                                                var data = fs.readFileSync("./dbase/users/management/talent.json");
+                                                var content = `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\n`
+                                                content += `Username: ${util.format(data[0].id)}\n`
+                                                content += `Transfer Ke Gopay:${util.format(data[0].number)}\n`
+                                                content += `Jumlah: 50.000\n`
+                                                var button =  [ 
+                                                    { 
+                                                        buttonId: `${prefix}buttons management switch pembayaran gopay accept`, 
+                                                        buttonText: { 
+                                                            displayText: 'ACCEPT' 
+                                                        }, 
+                                                        type: 1 
+                                                    }, {
+                                                        buttonId: `${prefix}buttons management switch pembayaran reject`, 
+                                                        buttonText: { 
+                                                            displayText: 'REJECT' 
+                                                        }, 
+                                                        type: 1 
+                                                    },
+                                                ];
+                                                await m.reply("Permintaan Sedang Di Proses, Harap Perhatikan Jika Saldo Tidak Mencukupi Maka Akan Terjadi Eror Saat Penarikan!\n\nProses Membutuhkan Delay, Harap Tunggu Sampai Di Proses Oleh Owner Management\n\n*Note:*\nBot Otomatis Mangabaikan Penarikan Tunai, Apabila Saldo Tidak Mencukupi.")
+                                                await razzaq.sendButtonText(p.config.mentionOwner, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] })
+                                            } elsif((m.args[6]) === '100) {
                                                 let data = fs.readFileSync("./dbase/users/management/talent.json");
                                                 await m.reply("Permintaan Sedang Di Proses, Harap Perhatikan Jika Saldo Tidak Mencukupi Maka Akan Terjadi Eror Saat Penarikan!\n\nProses Membutuhkan Delay, Harap Tunggu Sampai Di Proses Oleh Owner Management\n\n*Note:*\nBot Otomatis Mangabaikan Penarikan Tunai, Apabila Saldo Tidak Mencukupi.")
                                                 await razzaq.sendMessage(p.config.mentionOwner, { text: `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\nUsername: ${util.format(data[0].id)}\nTransfer Ke Gopay:\n${util.format(data[0].number)}` }, { quoted: m });
-                                            };
+                                            }
                                         };
                                     };
                                 };
                             };
                         } else if((m.args[1]) === 'masukan') {
-                            m.reply("Silahkan Masukan Password Anda\nExample: login passwords");
+                            m.reply("Silahkan Masukan Password Anda\nExample: login passwords\n\n*Note:* Kirim Melalui Chat Pribadi Bot, Guna Untuk Menjaga Identitas Password Pada Akun Talent Management Anda.");
                         } else if((m.args[1]) === 'adalah') {
                             var content = `Secara umum, pengertian management merupakan suatu seni dalam ilmu dan pengorganisasian seperti menyusun perencanaan, membangun organisasi dan pengorganisasiannya, pergerakan, serta pengendalian atau pengawasan.\n`
                             razzaq.sendBI3(m.chat, content, p.config.footer, m.thumb, `${prefix}buttons management sistem`, "SISTEM MANAGEMENT", `${prefix}buttons management gaji`, "SISTEM GAJI", `${prefix}buttons management join`, "DAFTAR SEKARANG!", m, { mentions: [ p.config.mentionOwner, m.sender ] })
@@ -147,7 +170,15 @@ module.exports = {
                     } else if((m.args[0]) === 'owner') {
                         razzaq.sendMessage(m.chat, { text: '@'+p.config.mentionOwner.split("@")[0], mentions: [p.config.mentionOwner] }, { quoted: m })
                     } else if((m.args[0]) === 'management') {
-                        if((m.args[1]) === 'metaverse') {
+                        if((m.args[1]) === 'switch') {
+                            if((m.args[2]) === 'pembayaran') {
+                                if((m.args[3]) === 'reject') {
+                                    razzaq.sendMessage(m.sender, { text: "Maaf Saldo Pendapatan Kamu Tidak Cukup Untuk Melakukan Tarik Tunai Untuk Saat Ini!" })
+                                } else if((m.args[3]) === 'accept') {
+                                    razzaq.sendMessage(m.sender, { text: "Berhasil Di Transfer!" })
+                                };
+                            };
+                        } else if((m.args[1]) === 'metaverse') {
                             var content = `Apakah @${m.sender.split("@")[0]} Ingin Join Management ?\n`
                             content += `Biaya Pendaftaran Sebesar 30.000-RP/30.000-IDR (K/RB)\n\n`
                             content += `Untuk Memulai Sebuah Bisnis, Dipersilahkan Untuk Belajar Terlebih Dahulu.\n`
