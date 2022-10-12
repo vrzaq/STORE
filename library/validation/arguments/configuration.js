@@ -109,6 +109,7 @@ exports.configuration = class configuration {
                     static fail = (type, m) => {
                         var msg = {
                             grup: "Khusus Dalam Grup!",
+                            pribadi: "Fitur Ini Hanya Bisa Di Gunakan Dalam Chat Pribadi!",
                             admin: "Khusus Admin Grup!",
                             adminB: "Bot Harus Menjadi Admin!",
                             pemilik: "Khusus Owner Bot!",
@@ -116,7 +117,7 @@ exports.configuration = class configuration {
                             banned: "Maaf, Anda Di Banned! Silahkan Hubungi Developer Bot Untuk Membukanya.",
                             tautan: "Format Link Tidak Di temukan!",
                             teks: "Forman Text Tidak Di Temukan!",
-                            jumlahK: "Gagal!, Jumlah Pengiriman Belum Di Isi!",
+                            jumlahK: "Gagal!, Jumlah Pengiriman Belum Di Isi!"
                         }[type]
                         if(msg) return m.reply(msg)
                     };
