@@ -681,8 +681,8 @@ module.exports = {
                         };
                     };
                     if(m.body.startsWith('login')) {
-                        if(m.args.length < 1) return m.reply(`*Example:* ${m.body.startsWith} passwords\n*Param:* Send Commands With Words ${m.body.startsWith} passwords\n*Desc:* Login At Account Metaverse Management\n`);
-                        var joinSpace = m.args.join(" ");
+                        if(m.args.length < 1) return m.reply(`*Example:* login-passwords\n*Param:* Send Commands With Words login-passwords\n*Desc:* Login At Account Metaverse Management\n`);
+                        var joinSpace = m.args.join("");
                         var createArrow = joinSpace.split("-")[0];
                         if(createArrow === p.db.talent[0].passwords) {
                             var button =  [ 
@@ -695,6 +695,7 @@ module.exports = {
                             content += `WA: https://wa.me/${p.db.talent[0].number}\n`
                             await m.reply('Data Di Temukan!');
                             await razzaq.sendButtonText(m.chat, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] });
+                            fs.writeFile("./dbase/users/management/talent.json", JSON.stringify(p.db.talent, null, 3), () => {})
                         } else {
                             m.reply("Password Salah!, Silahkan Masukan Kembali Password Anda!");
                         };
