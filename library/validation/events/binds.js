@@ -783,7 +783,7 @@ exports.getFunctions = {
         })
     },
     kyun(s) {
-        pad(s) => {
+        function pad(s) {
             return (s < 10 ? '0' : '') + s;
         };
         var hours = Math.floor(s / (60 * 60));
