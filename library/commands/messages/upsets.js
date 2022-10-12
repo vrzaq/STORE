@@ -74,7 +74,7 @@ module.exports = {
                                         if((m.args[5]) === 'gopay') {
                                             if((m.args[6]) === '50') {
                                                 let data = fs.readFileSync("./dbase/users/management/talent.json");
-                                                await m.reply("Permintaan Sedang Di Proses, Harap Perhatikan Jika Saldo Tidak Mencukupi Maka Akan Terjadi Eror Saat Penarikan!\n\nProses Membutuhkan Delay, Harap Tunggu Sampai Di Proses Oleh Owner Management\n\nNote:\nBot Otomatis Mangabaikan Penarikan Tunai, Apabila Saldo Tidak Mencukupi.")
+                                                await m.reply("Permintaan Sedang Di Proses, Harap Perhatikan Jika Saldo Tidak Mencukupi Maka Akan Terjadi Eror Saat Penarikan!\n\nProses Membutuhkan Delay, Harap Tunggu Sampai Di Proses Oleh Owner Management\n\n*Note:*\nBot Otomatis Mangabaikan Penarikan Tunai, Apabila Saldo Tidak Mencukupi.")
                                                 await razzaq.sendMessage(p.config.mentionOwner, { text: `Halo Owner, Ada Yang Ingin Tarik Tunai Nih!\n\nUsername: ${util.format(data[0].id)}\nTransfer Ke Gopay:\n${util.format(data[0].number)}` }, { quoted: m });
                                             };
                                         };
@@ -270,7 +270,7 @@ module.exports = {
                                     content += `*Klik Link di bawah 👇*\n`
                                     content += `https://wa.me/6281361057300?text=Halo+kak+ambil+followers+gratis+lewat+jalur+fadhlan887\n`
                                     await m.reply(content)
-                                    await m.reply("*Silahkan Share Text Diatas!*\nSetiap Orang Yang Klik Link Tersebut Dan Mengikuti Arahannya Hingga Selesai Kamu Bakalan Mendapatkan Uang Tunai Kemungkinan 10/15.k Setiap 1 Orang\n\nNote:* Dilarang Mengubah Apapun Yang Tersedia Di Event Text Diatas, Karena Kalau Berubah Bot Tidak Bisa Mendeteksi Seberapa Orang Yang Join Dari Hasil Yang Kamu Share!,\n\nShare Lah Sebanyak Mungkin Sebelum Event Berubah!.");
+                                    await m.reply("*Silahkan Share Text Diatas!*\nSetiap Orang Yang Klik Link Tersebut Dan Mengikuti Arahannya Hingga Selesai Kamu Bakalan Mendapatkan Uang Tunai Kemungkinan 10/15.k Setiap 1 Orang\n\n*Note:* Dilarang Mengubah Apapun Yang Tersedia Di Event Text Diatas, Karena Kalau Berubah Bot Tidak Bisa Mendeteksi Seberapa Orang Yang Join Dari Hasil Yang Kamu Share!,\n\nShare Lah Sebanyak Mungkin Sebelum Event Berubah!.");
                                 } else if((m.args[3]) === 'premium') {
                                     m.reply("Maaf Anda Bukan Users Premium! Silahkan Update Untuk Mendapatkan Fitur Dan Kegiatan Terbaru Serta Menghasilkan Uang Lebih Banyak Lagi!");
                                 };
@@ -689,13 +689,12 @@ module.exports = {
                                 { buttonId: `${prefix}buttons management data ${p.db.talent[0].id} events`, buttonText: { displayText: 'EVENTS' }, type: 1 }, 
                                 { buttonId: `${prefix}buttons management data ${p.db.talent[0].id} premium`, buttonText: { displayText: 'PREMIUM' }, type: 1 }
                             ];
-                            var content = `*Halo *${p.db.talent[0].id}*, Berikut Adalah Data Talent Management Kamu, Yuk Semangat Ikuti Event Hariannya Biar Jadi Jutawan!*\n\n`
-                            content += `*${m.ucapanWaktu} - ${m.moment} WIB*\n\n`
+                            var content = `Halo @${m.sender.split("@")[0]}, Berikut Adalah Data Talent Management Kamu, Yuk Semangat Ikuti Event Hariannya Biar Jadi Jutawan!*\n\n`
                             content += `Username: @${p.db.talent[0].id}\n`
                             content += `WhatsApp: https://wa.me/${p.db.talent[0].number}\n`
                             content += `Pendapatan: 0-Rp\n`
                             await m.reply('Data Di Temukan!');
-                            await razzaq.sendButtonText(m.chat, button, content, p.config.footer, m, { mentions: [ p.config.mentionOwner ] });
+                            await razzaq.sendButtonText(m.chat, button, content, p.config.footer, m, { mentions: [p.config.mentionOwner, m.sender] });
                             fs.writeFile("./dbase/users/management/talent.json", JSON.stringify(p.db.talent, null, 3), () => {})
                         } else {
                             m.reply("Password Salah!, Silahkan Masukan Kembali Password Anda!");
