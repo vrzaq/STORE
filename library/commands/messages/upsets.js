@@ -473,6 +473,8 @@ module.exports = {
                     content += `*List Groups:*\n`
                     content += `${m.numberLive++}. ${prefix}kick\n`
                     content += `${m.numberLive++}. ${prefix}add\n\n`
+                    content += `*List Media Downloads:*\n`
+                    content += `${m.numberLive++}. ${prefix}ytplay\n\n`
                     content += `*List Owners:*\n`
                     content += `${m.numberLive++}. ${prefix}mode [self/public]\n`
                     content += `${m.numberLive++}. ${prefix}command [enable/disable]\n`
@@ -735,8 +737,7 @@ module.exports = {
                 };
                 break;
                 case "kick": {
-                    if(!p.config.cmdPublic) return p.config.replyErr.fail("publik", m)
-                    if(m.isBanned) return p.config.replyErr.fail("banned", m)
+                    if(!razzaq.decodeJid(m.key?.fromMe)) return p.config.replyErr.fail("pemilik", m)
                     if(!m.isGroup) return p.config.replyErr.fail("grup", m)
                     let users = m.quoted ? m.quoted.sender : m.text.replace(/[^0-9]/g, '') +'@s.whatsapp.net';
                     if(users) {
@@ -754,6 +755,22 @@ module.exports = {
                     } else {
                         m.reply("please reply to someone's chat to propose the action");
                     };
+                };
+                break;
+                case "ytplay": {
+                    if(!p.config.cmdPublic) return p.config.replyErr.fail("publik", m)
+                    if(m.isBanned) return p.config.replyErr.fail("banned", m)
+                    if(m.args.length < 1) return m.reply(`Kirim perintah ${m.command} query\nContoh : ${m.command} sholawat man ana`);
+                    await razzaq.sendMessage(m.chat, { text: "mohon tunggu sebentar, permintaan anda sedang di proses" }, { quoted: m });
+                    await razzaq.sendPlay(m.chat, m.args, prefix, m.sender, m).catch(() => {
+                        razzaq.sendBI3(m.chat, "Server utama lagi gangguan, Silahkan pilih server yang lain untuk melanjutkan", `Pilih Salah Satu Button Dibawah!`, m.thumb, m.command + m.args, 'Server 1', m.command + m.args, 'Server 2', m.command + m.args, 'Server 3', m).catch(() => {
+                            razzaq.sendBI2(m.chat, "Server utama lagi gangguan, Silahkan pilih server yang lain untuk melanjutkan", `Pilih Salah Satu Button Dibawah!`, m.thumb, m.command + m.args, 'Server 1', m.command + m.args, 'Server 2', m).catch(() => {
+                                razzaq.sendBI2(m.chat, "Server utama lagi gangguan, Silahkan pilih server yang lain untuk melanjutkan", `Pilih Salah Satu Button Dibawah!`, m.thumb, m.command + m.args, 'Server 1', m).catch(() => {
+                                    m.reply("Semua server dalam gangguan silahkan coba beberapa saat lagi.")
+                                })
+                            })
+                        })
+                    })
                 };
                 break;
                 default: {
